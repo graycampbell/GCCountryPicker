@@ -2,8 +2,7 @@
 //  GCCountryPicker.h
 //  GCCountryPicker
 //
-//  Created by MacBook Pro on 9/28/17.
-//  Copyright © 2017 Gray Campbell. All rights reserved.
+//  Created by Gray Campbell on 9/28/17.
 //
 
 #import <UIKit/UIKit.h>
