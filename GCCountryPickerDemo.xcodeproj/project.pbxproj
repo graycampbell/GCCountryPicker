@@ -12,6 +12,7 @@
 		E2644B581F7D93260034EA06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2644B561F7D93260034EA06 /* Main.storyboard */; };
 		E2644B5A1F7D93260034EA06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2644B591F7D93260034EA06 /* Assets.xcassets */; };
 		E2644B5D1F7D93260034EA06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2644B5B1F7D93260034EA06 /* LaunchScreen.storyboard */; };
+		E2F9BFAF1F7D962200131AF8 /* GCCountryPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2644B661F7D93450034EA06 /* GCCountryPicker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2F9BFAF1F7D962200131AF8 /* GCCountryPicker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,8 +60,8 @@
 			children = (
 				E2644B521F7D93260034EA06 /* AppDelegate.swift */,
 				E2644B541F7D93260034EA06 /* ViewController.swift */,
-				E2644B561F7D93260034EA06 /* Main.storyboard */,
 				E2644B591F7D93260034EA06 /* Assets.xcassets */,
+				E2644B561F7D93260034EA06 /* Main.storyboard */,
 				E2644B5B1F7D93260034EA06 /* LaunchScreen.storyboard */,
 				E2644B5E1F7D93260034EA06 /* Info.plist */,
 			);

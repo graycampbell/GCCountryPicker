@@ -8,12 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		E2644B401F7D92DD0034EA06 /* GCCountryPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = E2644B3E1F7D92DD0034EA06 /* GCCountryPicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E2F9BFAE1F7D959A00131AF8 /* GCCountryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F9BFAD1F7D959A00131AF8 /* GCCountryPickerViewController.swift */; };
+		E2F9BFB11F7D97D000131AF8 /* GCCountryPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F9BFB01F7D97D000131AF8 /* GCCountryPickerDelegate.swift */; };
+		E2F9BFB51F7DA08900131AF8 /* GCCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F9BFB41F7DA08900131AF8 /* GCCountry.swift */; };
+		E2F9BFB71F7DA8DF00131AF8 /* CountryCodes.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2F9BFB61F7DA32500131AF8 /* CountryCodes.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E2644B3B1F7D92DD0034EA06 /* GCCountryPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GCCountryPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2644B3E1F7D92DD0034EA06 /* GCCountryPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCCountryPicker.h; sourceTree = "<group>"; };
 		E2644B3F1F7D92DD0034EA06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2F9BFAD1F7D959A00131AF8 /* GCCountryPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCCountryPickerViewController.swift; sourceTree = "<group>"; };
+		E2F9BFB01F7D97D000131AF8 /* GCCountryPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCCountryPickerDelegate.swift; sourceTree = "<group>"; };
+		E2F9BFB41F7DA08900131AF8 /* GCCountry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCCountry.swift; sourceTree = "<group>"; };
+		E2F9BFB61F7DA32500131AF8 /* CountryCodes.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CountryCodes.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +55,10 @@
 			isa = PBXGroup;
 			children = (
 				E2644B3E1F7D92DD0034EA06 /* GCCountryPicker.h */,
+				E2F9BFB41F7DA08900131AF8 /* GCCountry.swift */,
+				E2F9BFB01F7D97D000131AF8 /* GCCountryPickerDelegate.swift */,
+				E2F9BFAD1F7D959A00131AF8 /* GCCountryPickerViewController.swift */,
+				E2F9BFB61F7DA32500131AF8 /* CountryCodes.plist */,
 				E2644B3F1F7D92DD0034EA06 /* Info.plist */,
 			);
 			path = GCCountryPicker;
@@ -95,6 +107,7 @@
 				TargetAttributes = {
 					E2644B3A1F7D92DD0034EA06 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -121,6 +134,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2F9BFB71F7DA8DF00131AF8 /* CountryCodes.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +145,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2F9BFAE1F7D959A00131AF8 /* GCCountryPickerViewController.swift in Sources */,
+				E2F9BFB11F7D97D000131AF8 /* GCCountryPickerDelegate.swift in Sources */,
+				E2F9BFB51F7DA08900131AF8 /* GCCountry.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +270,7 @@
 		E2644B441F7D92DD0034EA06 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -265,6 +283,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.graycampbell.GCCountryPicker;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -273,6 +292,7 @@
 		E2644B451F7D92DD0034EA06 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
