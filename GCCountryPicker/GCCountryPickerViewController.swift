@@ -16,6 +16,7 @@ public final class GCCountryPickerViewController: UITableViewController {
     public var delegate: GCCountryPickerDelegate?
     
     fileprivate var countries = [GCCountry]()
+    fileprivate var searchController: UISearchController!
     
     // MARK: Initializers
     
@@ -81,6 +82,15 @@ extension GCCountryPickerViewController {
     fileprivate func configureNavigationBar() {
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.cancel(barButtonItem:)))
+        
+        self.searchController = UISearchController(searchResultsController: nil)
+        
+        self.searchController.searchResultsUpdater = self
+        
+        self.navigationItem.searchController = self.searchController
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+        
+        self.definesPresentationContext = true
     }
     
     // MARK: Targets
@@ -88,6 +98,14 @@ extension GCCountryPickerViewController {
     @objc func cancel(barButtonItem: UIBarButtonItem) {
         
         self.delegate?.countryPickerDidCancel(self)
+    }
+}
+
+extension GCCountryPickerViewController: UISearchResultsUpdating {
+    
+    public func updateSearchResults(for searchController: UISearchController) {
+        
+        
     }
 }
 
