@@ -7,7 +7,7 @@
 
 import UIKit
 
-/// The delegate of a GCCountryPickerViewController object must adopt the GCCountryPickerDelegate protocol. The protocol's optional methods allow the delegate to handle country selection and customize the picker's appearance.
+/// The delegate of a GCCountryPickerViewController object must adopt the GCCountryPickerDelegate protocol.
 
 public protocol GCCountryPickerDelegate {
     
@@ -26,7 +26,7 @@ public protocol GCCountryPickerDelegate {
     /// ---
     ///
     /// Your delegate’s implementation of this method should pass the country on to any custom code that needs it, and then it should dismiss the picker view.
-    
+    ///
     /// - Parameter countryPicker: The controller object managing the country picker interface.
     /// - Parameter country: The country selected by the user.
     

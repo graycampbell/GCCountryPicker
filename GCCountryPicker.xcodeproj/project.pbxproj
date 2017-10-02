@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E2644B401F7D92DD0034EA06 /* GCCountryPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = E2644B3E1F7D92DD0034EA06 /* GCCountryPicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E27C15561F81955600DA9091 /* GCSearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27C15551F81955600DA9091 /* GCSearchResultsController.swift */; };
+		E27C15581F81963600DA9091 /* GCSearchResultsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27C15571F81963600DA9091 /* GCSearchResultsDelegate.swift */; };
 		E2F9BFAE1F7D959A00131AF8 /* GCCountryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F9BFAD1F7D959A00131AF8 /* GCCountryPickerViewController.swift */; };
 		E2F9BFB11F7D97D000131AF8 /* GCCountryPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F9BFB01F7D97D000131AF8 /* GCCountryPickerDelegate.swift */; };
 		E2F9BFB51F7DA08900131AF8 /* GCCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F9BFB41F7DA08900131AF8 /* GCCountry.swift */; };
@@ -18,6 +20,8 @@
 		E2644B3B1F7D92DD0034EA06 /* GCCountryPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GCCountryPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2644B3E1F7D92DD0034EA06 /* GCCountryPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCCountryPicker.h; sourceTree = "<group>"; };
 		E2644B3F1F7D92DD0034EA06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E27C15551F81955600DA9091 /* GCSearchResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCSearchResultsController.swift; sourceTree = "<group>"; };
+		E27C15571F81963600DA9091 /* GCSearchResultsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCSearchResultsDelegate.swift; sourceTree = "<group>"; };
 		E2F9BFAD1F7D959A00131AF8 /* GCCountryPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCCountryPickerViewController.swift; sourceTree = "<group>"; };
 		E2F9BFB01F7D97D000131AF8 /* GCCountryPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCCountryPickerDelegate.swift; sourceTree = "<group>"; };
 		E2F9BFB41F7DA08900131AF8 /* GCCountry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCCountry.swift; sourceTree = "<group>"; };
@@ -58,6 +62,8 @@
 				E2F9BFB41F7DA08900131AF8 /* GCCountry.swift */,
 				E2F9BFB01F7D97D000131AF8 /* GCCountryPickerDelegate.swift */,
 				E2F9BFAD1F7D959A00131AF8 /* GCCountryPickerViewController.swift */,
+				E27C15571F81963600DA9091 /* GCSearchResultsDelegate.swift */,
+				E27C15551F81955600DA9091 /* GCSearchResultsController.swift */,
 				E2F9BFB61F7DA32500131AF8 /* CountryCodes.plist */,
 				E2644B3F1F7D92DD0034EA06 /* Info.plist */,
 			);
@@ -145,9 +151,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E27C15561F81955600DA9091 /* GCSearchResultsController.swift in Sources */,
 				E2F9BFAE1F7D959A00131AF8 /* GCCountryPickerViewController.swift in Sources */,
 				E2F9BFB11F7D97D000131AF8 /* GCCountryPickerDelegate.swift in Sources */,
 				E2F9BFB51F7DA08900131AF8 /* GCCountry.swift in Sources */,
+				E27C15581F81963600DA9091 /* GCSearchResultsDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
