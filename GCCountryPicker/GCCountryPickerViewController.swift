@@ -112,7 +112,7 @@ extension GCCountryPickerViewController: UISearchResultsUpdating {
             
             if !searchText.isEmpty {
                 
-                searchResults = self.countries.filter { $0.localizedDisplayName.localizedLowercase.hasPrefix(searchText) }
+                searchResults = self.countries.filter { $0.localizedDisplayName.localizedLowercase.range(of: "\\b\(searchText)", options: .regularExpression, range: nil, locale: .current) != nil }
             }
         }
         
