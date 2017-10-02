@@ -41,6 +41,10 @@ public final class GCCountryPickerViewController: UITableViewController {
 
 extension GCCountryPickerViewController {
     
+    /// Called after the controller's view is loaded into memory.
+    ///
+    /// This method is called after the view controller has loaded its view hierarchy into memory. This method is called regardless of whether the view hierarchy was loaded from a nib file or created programmatically in the loadView() method. You usually override this method to perform additional initialization on views that were loaded from nib files.
+    
     public override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -104,6 +108,12 @@ extension GCCountryPickerViewController {
 
 extension GCCountryPickerViewController: UISearchResultsUpdating {
     
+    /// Called when the search bar becomes the first responder or when the user makes changes inside the search bar.
+    ///
+    /// This method is automatically called whenever the search bar becomes the first responder or changes are made to the text in the search bar. Perform any required filtering and updating inside of this method.
+    ///
+    /// - Parameter searchController: The UISearchController object used as the search bar.
+    
     public func updateSearchResults(for searchController: UISearchController) {
         
         var searchResults = [GCCountry]()
@@ -144,10 +154,23 @@ extension GCCountryPickerViewController {
 
 extension GCCountryPickerViewController {
     
+    /// Tells the data source to return the number of rows in a given section of a table view.
+    ///
+    /// - Parameter tableView: The table-view object requesting this information.
+    /// - Parameter section: An index number identifying a section in tableView.
+    /// - Returns: The number of rows in section.
+    
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return self.countries.count
     }
+    
+    /// Tells the delegate that the specified row is now selected.
+    ///
+    /// The delegate handles selections in this method. One of the things it can do is exclusively assign the check-mark image (checkmark) to one row in a section (radio-list style). This method isn’t called when the isEditing property of the table is set to true (that is, the table view is in editing mode). See "Managing Selections" in Table View Programming Guide for iOS for further information (and code examples) related to this method.
+    ///
+    /// - Parameter tableView: A table-view object informing the delegate about the new row selection.
+    /// - Parameter indexPath: An index path locating the new selected row in tableView.
     
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -158,6 +181,14 @@ extension GCCountryPickerViewController {
 // MARK: - UITableViewDataSource
 
 extension GCCountryPickerViewController {
+    
+    /// Asks the data source for a cell to insert in a particular location of the table view.
+    ///
+    /// The returned UITableViewCell object is frequently one that the application reuses for performance reasons. You should fetch a previously created cell object that is marked for reuse by sending a dequeueReusableCell(withIdentifier:) message to tableView. Various attributes of a table cell are set automatically based on whether the cell is a separator and on information the data source provides, such as for accessory views and editing controls.
+    ///
+    /// - Parameter tableView: A table-view object requesting the cell.
+    /// - Parameter indexPath: An index path locating a row in tableView.
+    /// - Returns: An object inheriting from UITableViewCell that the table view can use for the specified row. An assertion is raised if you return nil.
     
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
