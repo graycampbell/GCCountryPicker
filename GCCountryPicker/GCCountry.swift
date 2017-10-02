@@ -21,8 +21,6 @@ public struct GCCountry {
     
     /// The localized display name for the country.
     ///
-    /// ---
-    ///
     /// This value is automatically generated using the supplied country code and the current locale.
     
     public let localizedDisplayName: String!
