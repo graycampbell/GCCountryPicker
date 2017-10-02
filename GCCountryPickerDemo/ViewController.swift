@@ -12,7 +12,9 @@ import GCCountryPicker
 
 class ViewController: UIViewController {
     
+    // MARK: Properties
     
+    fileprivate var country: GCCountry!
 }
 
 // MARK: - View
@@ -34,10 +36,8 @@ extension ViewController {
     fileprivate func configureNavigationBar() {
         
         self.navigationItem.title = Locale.current.localizedString(forRegionCode: "US")
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Change Country", style: .plain, target: self, action: #selector(showCountryPicker(barButtonItem:)))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(self.showCountryPicker(barButtonItem:)))
     }
-    
-    // MARK: Targets
     
     @objc func showCountryPicker(barButtonItem: UIBarButtonItem) {
         
@@ -62,6 +62,7 @@ extension ViewController: GCCountryPickerDelegate {
     
     func countryPicker(_ countryPicker: GCCountryPickerViewController, didSelectCountry country: GCCountry) {
         
+        self.country = country
         self.navigationItem.title = country.localizedDisplayName
         
         self.dismiss(animated: true, completion: nil)

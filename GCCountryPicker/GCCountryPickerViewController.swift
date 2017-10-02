@@ -9,37 +9,37 @@ import UIKit
 
 // MARK: Properties & Initializers
 
+/// The GCCountryPickerViewController class defines a view controller containing a country picker interface.
+
 public final class GCCountryPickerViewController: UITableViewController {
     
     // MARK: Properties
     
+    /// The object that acts as the delegate of the country picker view controller.
+    
     public var delegate: GCCountryPickerDelegate?
     
     fileprivate var countries = [GCCountry]()
+    fileprivate var searchController: UISearchController!
+    fileprivate var searchResultsController = GCSearchResultsController()
     
     // MARK: Initializers
     
-    public required init?(coder aDecoder: NSCoder) {
-        
-        super.init(coder: aDecoder)
-    }
-    
-    public init(navigationTitle: String) {
-        
-        super.init(style: .plain)
-        
-        self.navigationItem.title = navigationTitle
-    }
+    /// Initializes and returns a newly allocated country picker view controller object.
+    ///
+    /// - Returns: An initialized country picker view controller object.
     
     public convenience init() {
         
-        self.init(navigationTitle: "Country")
+        self.init(style: .plain)
+        
+        self.navigationItem.title = "Country"
     }
 }
 
 // MARK: - View
 
-public extension GCCountryPickerViewController {
+extension GCCountryPickerViewController {
     
     public override func viewDidLoad() {
         
@@ -81,13 +81,52 @@ extension GCCountryPickerViewController {
     fileprivate func configureNavigationBar() {
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.cancel(barButtonItem:)))
+        
+        self.searchController = UISearchController(searchResultsController: self.searchResultsController)
+        
+        self.searchController.searchResultsUpdater = self
+        self.searchController.searchBar.delegate = self.searchResultsController
+        self.searchResultsController.delegate = self
+        
+        self.navigationItem.searchController = self.searchController
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+        
+        self.definesPresentationContext = true
     }
-    
-    // MARK: Targets
     
     @objc func cancel(barButtonItem: UIBarButtonItem) {
         
         self.delegate?.countryPickerDidCancel(self)
+    }
+}
+
+// MARK: - UISearchResultsUpdating
+
+extension GCCountryPickerViewController: UISearchResultsUpdating {
+    
+    public func updateSearchResults(for searchController: UISearchController) {
+        
+        var searchResults = [GCCountry]()
+        
+        if let searchText = searchController.searchBar.text?.localizedLowercase.replacingOccurrences(of: "(^\\s+)|(\\s+$)", with: "", options: .regularExpression, range: nil) {
+            
+            if !searchText.isEmpty {
+                
+                searchResults = self.countries.filter { $0.localizedDisplayName.localizedLowercase.range(of: "\\b\(searchText)", options: .regularExpression, range: nil, locale: .current) != nil }
+            }
+        }
+        
+        self.searchResultsController.searchResults = searchResults
+    }
+}
+
+// MARK: - GCSearchResultsDelegate
+
+extension GCCountryPickerViewController: GCSearchResultsDelegate {
+    
+    func searchResultsController(_ searchResultsController: GCSearchResultsController, didSelectSearchResult searchResult: GCCountry) {
+        
+        self.delegate?.countryPicker(self, didSelectCountry: searchResult)
     }
 }
 
@@ -103,12 +142,7 @@ extension GCCountryPickerViewController {
 
 // MARK: - UITableViewDelegate
 
-public extension GCCountryPickerViewController {
-    
-    public override func numberOfSections(in tableView: UITableView) -> Int {
-        
-        return 1
-    }
+extension GCCountryPickerViewController {
     
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -123,7 +157,7 @@ public extension GCCountryPickerViewController {
 
 // MARK: - UITableViewDataSource
 
-public extension GCCountryPickerViewController {
+extension GCCountryPickerViewController {
     
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
