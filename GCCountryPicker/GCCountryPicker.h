@@ -14,5 +14,3 @@ FOUNDATION_EXPORT double GCCountryPickerVersionNumber;
 FOUNDATION_EXPORT const unsigned char GCCountryPickerVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <GCCountryPicker/PublicHeader.h>
-
-
