@@ -36,7 +36,7 @@ extension ViewController {
     fileprivate func configureNavigationBar() {
         
         self.navigationItem.title = Locale.current.localizedString(forRegionCode: "US")
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Change Country", style: .plain, target: self, action: #selector(showCountryPicker(barButtonItem:)))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(self.showCountryPicker(barButtonItem:)))
     }
     
     @objc func showCountryPicker(barButtonItem: UIBarButtonItem) {
