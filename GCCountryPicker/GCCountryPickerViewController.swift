@@ -19,10 +19,12 @@ public final class GCCountryPickerViewController: UITableViewController {
     
     public var delegate: GCCountryPickerDelegate?
     
-    fileprivate var countries = [GCCountry]()
-    fileprivate var countryCodes = [String]()
+    fileprivate var countries: [[GCCountry]]!
+    fileprivate var countryCodes: [String]!
     fileprivate var searchController: UISearchController!
     fileprivate var searchResultsController = GCSearchResultsController()
+    
+    fileprivate let currentCollation = UILocalizedIndexedCollation.current()
     
     fileprivate var defaultCountryCodes: [String] {
         
@@ -90,15 +92,31 @@ extension GCCountryPickerViewController {
     
     fileprivate func loadCountries() {
         
+        var unsortedCountries = [Int: [GCCountry]]()
+        
         for countryCode in self.countryCodes {
             
             if let country = GCCountry(countryCode: countryCode) {
                 
-                self.countries.append(country)
+                let section = self.currentCollation.section(for: country, collationStringSelector: #selector(getter: GCCountry.localizedDisplayName))
+                
+                if unsortedCountries[section] == nil {
+                    
+                    unsortedCountries[section] = [country]
+                }
+                else {
+                    
+                    unsortedCountries[section]?.append(country)
+                }
             }
         }
         
-        self.countries.sort(by: { $0.localizedDisplayName < $1.localizedDisplayName })
+        self.countries = Array(repeating: [GCCountry](), count: self.currentCollation.sectionTitles.count)
+        
+        for (section, collection) in unsortedCountries {
+            
+            self.countries[section] = self.currentCollation.sortedArray(from: collection, collationStringSelector: #selector(getter: GCCountry.localizedDisplayName)) as! [GCCountry]
+        }
     }
 }
 
@@ -146,7 +164,7 @@ extension GCCountryPickerViewController: UISearchResultsUpdating {
             
             if !searchText.isEmpty {
                 
-                searchResults = self.countries.filter { $0.localizedDisplayName.localizedLowercase.range(of: "\\b\(searchText)", options: .regularExpression, range: nil, locale: .current) != nil }
+                searchResults = self.countries.joined().filter { $0.localizedDisplayName.localizedLowercase.range(of: "\\b\(searchText)", options: .regularExpression, range: nil, locale: .current) != nil }
             }
         }
         
@@ -171,12 +189,37 @@ extension GCCountryPickerViewController {
     fileprivate func configureTableView() {
         
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "TableViewCell")
+        self.tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: "SectionHeaderView")
     }
 }
 
 // MARK: - UITableViewDelegate
 
 extension GCCountryPickerViewController {
+    
+    public override func numberOfSections(in tableView: UITableView) -> Int {
+        
+        return self.countries.count
+    }
+    
+    public override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        
+        return self.currentCollation.sectionIndexTitles
+    }
+    
+    public override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SectionHeaderView")
+        
+        headerView?.textLabel?.text = self.currentCollation.sectionTitles[section]
+        
+        return headerView
+    }
+    
+    public override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+        
+        return self.currentCollation.section(forSectionIndexTitle: index)
+    }
     
     /// Tells the data source to return the number of rows in a given section of a table view.
     ///
@@ -186,7 +229,7 @@ extension GCCountryPickerViewController {
     
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return self.countries.count
+        return self.countries[section].count
     }
     
     /// Tells the delegate that the specified row is now selected.
@@ -198,7 +241,7 @@ extension GCCountryPickerViewController {
     
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        self.delegate?.countryPicker(self, didSelectCountry: self.countries[indexPath.row])
+        self.delegate?.countryPicker(self, didSelectCountry: self.countries[indexPath.section][indexPath.row])
     }
 }
 
@@ -218,7 +261,7 @@ extension GCCountryPickerViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath)
         
-        cell.textLabel?.text = self.countries[indexPath.row].localizedDisplayName
+        cell.textLabel?.text = self.countries[indexPath.section][indexPath.row].localizedDisplayName
         
         return cell
     }

@@ -9,9 +9,9 @@ import UIKit
 
 // MARK: Properties & Initializers
 
-/// A structure that contains the ISO 3166-1 alpha-2 country code and the localized display name for a country.
+/// An object that contains the ISO 3166-1 alpha-2 country code and the localized display name for a country.
 
-public struct GCCountry {
+public final class GCCountry: NSObject {
     
     // MARK: Properties
     
@@ -23,7 +23,7 @@ public struct GCCountry {
     ///
     /// This value is automatically generated using the supplied country code and the current locale.
     
-    public let localizedDisplayName: String!
+    @objc public let localizedDisplayName: String!
     
     // MARK: Initializers
     
@@ -43,5 +43,15 @@ public struct GCCountry {
             
             return nil
         }
+    }
+}
+
+// MARK: - Collation
+
+extension GCCountry {
+    
+    @objc func collationString() -> NSString {
+        
+        return self.localizedDisplayName as NSString
     }
 }
