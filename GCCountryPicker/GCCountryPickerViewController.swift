@@ -224,6 +224,7 @@ extension GCCountryPickerViewController {
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SectionHeaderView")
         
         headerView?.textLabel?.text = self.sectionTitles[section]
+        headerView?.textLabel?.font = UIFont.boldSystemFont(ofSize: UIFont.labelFontSize)
         headerView?.textLabel?.textColor = .black
         
         return headerView
