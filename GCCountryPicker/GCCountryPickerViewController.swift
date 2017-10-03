@@ -20,20 +20,49 @@ public final class GCCountryPickerViewController: UITableViewController {
     public var delegate: GCCountryPickerDelegate?
     
     fileprivate var countries = [GCCountry]()
+    fileprivate var countryCodes = [String]()
     fileprivate var searchController: UISearchController!
     fileprivate var searchResultsController = GCSearchResultsController()
     
+    fileprivate var defaultCountryCodes: [String] {
+        
+        if let url = Bundle(for: GCCountryPickerViewController.self).url(forResource: "CountryCodes", withExtension: "plist") {
+            
+            if let countryCodes = NSArray(contentsOf: url) as? [String] {
+                
+                return countryCodes
+            }
+        }
+        
+        return []
+    }
+    
     // MARK: Initializers
+    
+    /// Returns an object initialized from data in a given unarchiver.
+    ///
+    /// - Parameter coder: An unarchiver object.
+    /// - Returns: self, initialized using the data in decoder.
+    
+    public required init?(coder aDecoder: NSCoder) {
+        
+        super.init(coder: aDecoder)
+        
+        self.countryCodes = self.defaultCountryCodes
+    }
     
     /// Initializes and returns a newly allocated country picker view controller object.
     ///
+    /// By default, the country picker interface displays the 249 countries that have been officially assigned ISO 3166-1 alpha-2 codes as part of the ISO 3166 standard. You can customize which countries the country picker interface displays by initializing the controller with a collection of ISO 3166-1 alpha-2 country codes.
+    ///
+    /// - Parameter countryCodes: A collection of ISO 3166-1 alpha-2 country codes representing countries for the country picker interface to display.
     /// - Returns: An initialized country picker view controller object.
     
-    public convenience init() {
+    public init(countryCodes: [String]? = nil) {
         
-        self.init(style: .plain)
+        super.init(style: .plain)
         
-        self.navigationItem.title = "Country"
+        self.countryCodes = countryCodes ?? self.defaultCountryCodes
     }
 }
 
@@ -61,20 +90,15 @@ extension GCCountryPickerViewController {
     
     fileprivate func loadCountries() {
         
-        if let url = Bundle(for: GCCountryPickerViewController.self).url(forResource: "CountryCodes", withExtension: "plist") {
+        for countryCode in self.countryCodes {
             
-            if let countryCodes = NSArray(contentsOf: url) as? [String] {
-
-                for countryCode in countryCodes {
-
-                    let country = GCCountry(countryCode: countryCode)
-                    
-                    self.countries.append(country)
-                }
-
-                self.countries.sort(by: { $0.localizedDisplayName < $1.localizedDisplayName })
+            if let country = GCCountry(countryCode: countryCode) {
+                
+                self.countries.append(country)
             }
         }
+        
+        self.countries.sort(by: { $0.localizedDisplayName < $1.localizedDisplayName })
     }
 }
 

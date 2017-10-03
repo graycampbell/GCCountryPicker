@@ -32,9 +32,16 @@ public struct GCCountry {
     /// - Parameter countryCode: An ISO 3166-1 alpha-2 code representing a country.
     /// - Returns: An initialized country containing a country code and a localized display name.
     
-    public init(countryCode: String) {
+    public init?(countryCode: String) {
         
-        self.countryCode = countryCode
-        self.localizedDisplayName = Locale.current.localizedString(forRegionCode: countryCode)
+        if let localizedDisplayName = Locale.current.localizedString(forRegionCode: countryCode) {
+            
+            self.countryCode = countryCode
+            self.localizedDisplayName = localizedDisplayName
+        }
+        else {
+            
+            return nil
+        }
     }
 }
