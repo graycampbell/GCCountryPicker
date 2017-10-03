@@ -19,10 +19,14 @@ public final class GCCountryPickerViewController: UITableViewController {
     
     public var delegate: GCCountryPickerDelegate?
     
-    fileprivate var countries = [GCCountry]()
-    fileprivate var countryCodes = [String]()
+    fileprivate var countries: [[GCCountry]]!
+    fileprivate var countryCodes: [String]!
     fileprivate var searchController: UISearchController!
     fileprivate var searchResultsController = GCSearchResultsController()
+    
+    fileprivate var collation = UILocalizedIndexedCollation.current()
+    fileprivate var sectionTitles = UILocalizedIndexedCollation.current().sectionTitles
+    fileprivate var sectionIndexTitles = UILocalizedIndexedCollation.current().sectionIndexTitles
     
     fileprivate var defaultCountryCodes: [String] {
         
@@ -90,15 +94,43 @@ extension GCCountryPickerViewController {
     
     fileprivate func loadCountries() {
         
+        self.countries = Array(repeating: [GCCountry](), count: self.sectionTitles.count)
+        
+        let keys = 0...self.sectionTitles.count - 1
+        let values = Array(repeating: [GCCountry](), count: self.sectionTitles.count)
+        
+        var sections = Dictionary(uniqueKeysWithValues: zip(keys, values))
+        
         for countryCode in self.countryCodes {
             
             if let country = GCCountry(countryCode: countryCode) {
                 
-                self.countries.append(country)
+                let section = self.collation.section(for: country, collationStringSelector: #selector(getter: GCCountry.localizedDisplayName))
+                
+                sections[section]?.append(country)
             }
         }
         
-        self.countries.sort(by: { $0.localizedDisplayName < $1.localizedDisplayName })
+        var emptySections = [Int]()
+        
+        for (section, value) in sections {
+            
+            if value.isEmpty {
+                
+                emptySections.append(section)
+            }
+            else {
+                
+                self.countries[section] = self.collation.sortedArray(from: value, collationStringSelector: #selector(getter: GCCountry.localizedDisplayName)) as! [GCCountry]
+            }
+        }
+        
+        for section in emptySections.sorted(by: { $0 > $1 }) {
+            
+            self.countries.remove(at: section)
+            self.sectionTitles.remove(at: section)
+            self.sectionIndexTitles.remove(at: section)
+        }
     }
 }
 
@@ -146,7 +178,7 @@ extension GCCountryPickerViewController: UISearchResultsUpdating {
             
             if !searchText.isEmpty {
                 
-                searchResults = self.countries.filter { $0.localizedDisplayName.localizedLowercase.range(of: "\\b\(searchText)", options: .regularExpression, range: nil, locale: .current) != nil }
+                searchResults = self.countries.joined().filter { $0.localizedDisplayName.localizedLowercase.range(of: "\\b\(searchText)", options: .regularExpression, range: nil, locale: .current) != nil }
             }
         }
         
@@ -171,6 +203,7 @@ extension GCCountryPickerViewController {
     fileprivate func configureTableView() {
         
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "TableViewCell")
+        self.tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: "SectionHeaderView")
     }
 }
 
@@ -178,15 +211,23 @@ extension GCCountryPickerViewController {
 
 extension GCCountryPickerViewController {
     
-    /// Tells the data source to return the number of rows in a given section of a table view.
+    /// Asks the delegate for a view object to display in the header of the specified section of the table view.
     ///
-    /// - Parameter tableView: The table-view object requesting this information.
-    /// - Parameter section: An index number identifying a section in tableView.
-    /// - Returns: The number of rows in section.
+    /// The returned object can be a UILabel or UIImageView object, as well as a custom view. This method only works correctly when tableView(_:heightForHeaderInSection:) is also implemented.
+    ///
+    /// - Parameter tableView: The table-view object asking for the view object.
+    /// - Parameter section: An index number identifying a section of tableView.
+    /// - Returns: A view object to be displayed in the header of section.
     
-    public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        return self.countries.count
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SectionHeaderView")
+        
+        headerView?.textLabel?.text = self.sectionTitles[section]
+        headerView?.textLabel?.font = UIFont.boldSystemFont(ofSize: UIFont.labelFontSize)
+        headerView?.textLabel?.textColor = .black
+        
+        return headerView
     }
     
     /// Tells the delegate that the specified row is now selected.
@@ -198,13 +239,57 @@ extension GCCountryPickerViewController {
     
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        self.delegate?.countryPicker(self, didSelectCountry: self.countries[indexPath.row])
+        self.delegate?.countryPicker(self, didSelectCountry: self.countries[indexPath.section][indexPath.row])
     }
 }
 
 // MARK: - UITableViewDataSource
 
 extension GCCountryPickerViewController {
+    
+    /// Asks the data source to return the number of sections in the table view.
+    ///
+    /// - Parameter tableView: An object representing the table view requesting this information.
+    /// - Returns: The number of sections in tableView. The default value is 1.
+    
+    public override func numberOfSections(in tableView: UITableView) -> Int {
+        
+        return self.countries.count
+    }
+    
+    /// Tells the data source to return the number of rows in a given section of a table view.
+    ///
+    /// - Parameter tableView: The table-view object requesting this information.
+    /// - Parameter section: An index number identifying a section in tableView.
+    /// - Returns: The number of rows in section.
+    
+    public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return self.countries[section].count
+    }
+    
+    /// Asks the data source to return the titles for the sections for a table view.
+    ///
+    /// - Parameter tableView: The table-view object requesting this information.
+    /// - Returns: An array of strings that serve as the title of sections in the table view and appear in the index list on the right side of the table view. The table view must be in the plain style (UITableViewStylePlain). For example, for an alphabetized list, you could return an array containing strings “A” through “Z”.
+    
+    public override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        
+        return self.sectionIndexTitles
+    }
+    
+    /// Asks the data source to return the index of the section having the given title and section title index.
+    ///
+    /// This method is passed the index number and title of an entry in the section index list and should return the index of the referenced section. To be clear, there are two index numbers in play here: an index to a section index title in the array returned by sectionIndexTitles(for:), and an index to a section of the table view; the former is passed in, and the latter is returned. You implement this method only for table views with a section index list—which can only be table views created in the plain style (plain). Note that the array of section titles returned by sectionIndexTitles(for:) can have fewer items than the actual number of sections in the table view.
+    ///
+    /// - Parameter tableView: The table-view object requesting this information.
+    /// - Parameter title: The title as displayed in the section index of tableView.
+    /// - Parameter index: An index number identifying a section title in the array returned by sectionIndexTitles(for:).
+    
+    public override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+        
+        return self.collation.section(forSectionIndexTitle: index)
+    }
     
     /// Asks the data source for a cell to insert in a particular location of the table view.
     ///
@@ -218,7 +303,7 @@ extension GCCountryPickerViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath)
         
-        cell.textLabel?.text = self.countries[indexPath.row].localizedDisplayName
+        cell.textLabel?.text = self.countries[indexPath.section][indexPath.row].localizedDisplayName
         
         return cell
     }
