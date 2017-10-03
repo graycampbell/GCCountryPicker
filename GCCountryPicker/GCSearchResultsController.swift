@@ -19,6 +19,8 @@ class GCSearchResultsController: UITableViewController {
     
     var delegate: GCSearchResultsDelegate?
     
+    /// An ordered collection of search results displayed by the controller.
+    
     var searchResults = [GCCountry]() {
         
         didSet {
