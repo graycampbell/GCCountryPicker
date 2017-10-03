@@ -34,7 +34,7 @@ public struct GCCountry {
     
     public init?(countryCode: String) {
         
-        if let localizedDisplayName = Locale.current.localizedString(forRegionCode: countryCode) {
+        if let localizedDisplayName = Locale(identifier: Locale.preferredLanguages.first!).localizedString(forRegionCode: countryCode) {
             
             self.countryCode = countryCode
             self.localizedDisplayName = localizedDisplayName
