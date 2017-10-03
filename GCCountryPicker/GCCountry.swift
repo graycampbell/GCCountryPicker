@@ -45,13 +45,3 @@ public final class GCCountry: NSObject {
         }
     }
 }
-
-// MARK: - Collation
-
-extension GCCountry {
-    
-    @objc func collationString() -> NSString {
-        
-        return self.localizedDisplayName as NSString
-    }
-}
