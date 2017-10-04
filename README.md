@@ -34,7 +34,24 @@ pod 'GCCountryPicker'
     countryPickerViewController.navigationItem.title = "Countries"
     ```
 
-4. Implement GCCountryPickerDelegate.
+4. Embed the country picker view controller in a navigation controller.
+
+    ```
+    let navigationController = UINavigationController(rootViewController: countryPickerViewController)
+    ```
+
+5. Present the navigation controller.
+
+    ```
+    self.present(navigationController, animated: true, completion: nil)
+    ```
+
+6. Implement GCCountryPickerDelegate.
+
+    ```
+    func countryPickerDidCancel(_ countryPicker: GCCountryPickerViewController)
+    func countryPicker(_ countryPicker: GCCountryPickerViewController, didSelectCountry country: GCCountry)
+    ```
 
 ### License
 
