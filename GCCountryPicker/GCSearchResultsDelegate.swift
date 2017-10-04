@@ -11,7 +11,7 @@ import UIKit
 
 protocol GCSearchResultsDelegate {
     
-    /// Tells the delegate that the user picked a search result.
+    /// Tells the delegate that the user selected a search result.
     /// 
     /// - Parameter searchResultsController: The controller object managing the search results interface.
     /// - Parameter searchResult: The search result selected by the user.
