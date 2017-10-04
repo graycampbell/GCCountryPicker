@@ -1,4 +1,4 @@
-## [Version 1.0.0](https://github.com/graycampbell/GCCountryPicker/tree/1.0.0) - October 4, 2017
+## [Version 1.0.0](https://github.com/graycampbell/GCCountryPicker/tree/1.0.0) - October 5, 2017
 
 [Full Changelog](https://github.com/graycampbell/GCCountryPicker/compare/ce99cec...1.0.0)
 
