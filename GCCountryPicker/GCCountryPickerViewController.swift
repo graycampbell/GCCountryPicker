@@ -10,6 +10,8 @@ import UIKit
 // MARK: Properties & Initializers
 
 /// The GCCountryPickerViewController class defines a view controller containing a country picker interface.
+///
+/// By default, the country picker interface displays the 249 countries that have been officially assigned ISO 3166-1 alpha-2 country codes as part of the ISO 3166 standard. You can customize which countries the country picker interface displays by setting the data source property and adopting the GCCountryPickerDataSource protocol.
 
 public final class GCCountryPickerViewController: UITableViewController {
     
@@ -19,8 +21,11 @@ public final class GCCountryPickerViewController: UITableViewController {
     
     public var delegate: GCCountryPickerDelegate?
     
+    /// The object that acts as the data source of the country picker view controller.
+    
+    public var dataSource: GCCountryPickerDataSource?
+    
     fileprivate var countries: [[GCCountry]]!
-    fileprivate var countryCodes: [String]!
     fileprivate var searchController: UISearchController!
     fileprivate var searchResultsController = GCSearchResultsController()
     
@@ -51,22 +56,15 @@ public final class GCCountryPickerViewController: UITableViewController {
     public required init?(coder aDecoder: NSCoder) {
         
         super.init(coder: aDecoder)
-        
-        self.countryCodes = self.defaultCountryCodes
     }
     
     /// Initializes and returns a newly allocated country picker view controller object.
     ///
-    /// By default, the country picker interface displays the 249 countries that have been officially assigned ISO 3166-1 alpha-2 codes as part of the ISO 3166 standard. You can customize which countries the country picker interface displays by initializing the controller with a collection of ISO 3166-1 alpha-2 country codes.
-    ///
-    /// - Parameter countryCodes: A collection of ISO 3166-1 alpha-2 country codes representing countries for the country picker interface to display.
     /// - Returns: An initialized country picker view controller object.
     
-    public init(countryCodes: [String]? = nil) {
+    public init() {
         
         super.init(style: .plain)
-        
-        self.countryCodes = countryCodes ?? self.defaultCountryCodes
     }
 }
 
@@ -101,7 +99,9 @@ extension GCCountryPickerViewController {
         
         var sections = Dictionary(uniqueKeysWithValues: zip(keys, values))
         
-        for countryCode in self.countryCodes {
+        let countryCodes = self.dataSource?.countryCodes(for: self) ?? self.defaultCountryCodes
+        
+        for countryCode in countryCodes {
             
             if let country = GCCountry(countryCode: countryCode) {
                 
