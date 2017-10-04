@@ -26,10 +26,11 @@ pod 'GCCountryPicker'
     let countryPickerViewController = GCCountryPickerViewController()
     ```
 
-3. Set the delegate and the navigation title.
+3. Set the delegate, data source, and navigation title.
 
     ```
     countryPickerViewController.delegate = self
+    countryPickerViewController.dataSource = self
     countryPickerViewController.navigationItem.title = "Countries"
     ```
 
