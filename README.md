@@ -55,6 +55,12 @@ pod 'GCCountryPicker'
     func countryPicker(_ countryPicker: GCCountryPickerViewController, didSelectCountry country: GCCountry)
     ```
 
+7. Implement GCCountryPickerDataSource (optional).
+
+    ```
+    func countryCodes(for countryPicker: GCCountryPickerViewController) -> [String]
+    ```
+
 ### Documentation
 
 - [Classes](http://cocoadocs.org/docsets/GCCountryPicker/1.0.0/Classes.html)
