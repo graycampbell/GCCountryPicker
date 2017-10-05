@@ -13,6 +13,7 @@
 		E2644B5A1F7D93260034EA06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2644B591F7D93260034EA06 /* Assets.xcassets */; };
 		E2644B5D1F7D93260034EA06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2644B5B1F7D93260034EA06 /* LaunchScreen.storyboard */; };
 		E2F9BFAF1F7D962200131AF8 /* GCCountryPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2644B661F7D93450034EA06 /* GCCountryPicker.framework */; };
+		E2FDD8481F86C27200C1595A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E2FDD84A1F86C27200C1595A /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,10 @@
 		E2644B5C1F7D93260034EA06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E2644B5E1F7D93260034EA06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2644B661F7D93450034EA06 /* GCCountryPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GCCountryPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2FDD8491F86C27200C1595A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E2FDD84B1F86C2A400C1595A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		E2FDD84D1F86C32800C1595A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E2FDD84E1F86C33B00C1595A /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +68,7 @@
 				E2644B591F7D93260034EA06 /* Assets.xcassets */,
 				E2644B561F7D93260034EA06 /* Main.storyboard */,
 				E2644B5B1F7D93260034EA06 /* LaunchScreen.storyboard */,
+				E2FDD84A1F86C27200C1595A /* Localizable.strings */,
 				E2644B5E1F7D93260034EA06 /* Info.plist */,
 			);
 			path = GCCountryPickerDemo;
@@ -119,6 +125,9 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
+				de,
+				ja,
 			);
 			mainGroup = E2644B461F7D93260034EA06;
 			productRefGroup = E2644B501F7D93260034EA06 /* Products */;
@@ -136,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2644B5D1F7D93260034EA06 /* LaunchScreen.storyboard in Resources */,
+				E2FDD8481F86C27200C1595A /* Localizable.strings in Resources */,
 				E2644B5A1F7D93260034EA06 /* Assets.xcassets in Resources */,
 				E2644B581F7D93260034EA06 /* Main.storyboard in Resources */,
 			);
@@ -172,6 +182,17 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		E2FDD84A1F86C27200C1595A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E2FDD8491F86C27200C1595A /* en */,
+				E2FDD84B1F86C2A400C1595A /* zh-Hans */,
+				E2FDD84D1F86C32800C1595A /* de */,
+				E2FDD84E1F86C33B00C1595A /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -179,6 +200,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -236,6 +258,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
