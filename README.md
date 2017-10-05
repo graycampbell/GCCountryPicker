@@ -56,6 +56,7 @@ pod 'GCCountryPicker'
 ### Documentation
 
 - [Classes](http://cocoadocs.org/docsets/GCCountryPicker/1.0.0/Classes.html)
+  - [GCCountry](http://cocoadocs.org/docsets/GCCountryPicker/1.0.0/Classes/GCCountry.html)
   - [GCCountryPickerViewController](http://cocoadocs.org/docsets/GCCountryPicker/1.0.0/Classes/GCCountryPickerViewController.html)
 
 - [Protocols](http://cocoadocs.org/docsets/GCCountryPicker/1.0.0/Protocols.html)
