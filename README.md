@@ -3,7 +3,7 @@
 [![Release](https://img.shields.io/github/release/graycampbell/GCCountryPicker.svg)](https://github.com/graycampbell/GCCountryPicker/releases/latest)
 [![CocoaPods](https://img.shields.io/cocoapods/v/GCCountryPicker.svg)](https://cocoapods.org/pods/GCCountryPicker)
 [![CocoaDocs](https://img.shields.io/cocoapods/metrics/doc-percent/GCCountryPicker.svg)](http://cocoadocs.org/docsets/GCCountryPicker)
-[![Codacy Code Quality]()]()
+[![Codacy Code Quality](https://api.codacy.com/project/badge/Grade/99eca2221a994d43954c30138416c249)](https://www.codacy.com/app/graycampbell/GCCountryPicker?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=graycampbell/GCCountryPicker&amp;utm_campaign=Badge_Grade)
 [![Swift 4 Compatible](https://img.shields.io/badge/Swift_4-compatible-4BC51D.svg?style=flat)](https://developer.apple.com/swift)
 ![Platform](https://img.shields.io/cocoapods/p/GCCountryPicker.svg?style=flat)
 [![License](https://img.shields.io/cocoapods/l/GCCountryPicker.svg)](https://github.com/graycampbell/GCCountryPicker/blob/master/LICENSE)
