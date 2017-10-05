@@ -8,6 +8,7 @@
 
 **Merged Pull Requests**
 
+- Add banner and demo localization [\#8](https://github.com/graycampbell/GCCountryPicker/pull/8) ([graycampbell](https://github.com/graycampbell))
 - Update implementation to use GCCountryPickerDataSource [\#7](https://github.com/graycampbell/GCCountryPicker/pull/7) ([graycampbell](https://github.com/graycampbell))
 - Add navigation title [\#6](https://github.com/graycampbell/GCCountryPicker/pull/6) ([graycampbell](https://github.com/graycampbell))
 - Improve country sorting using UILocalizedIndexedCollation [\#5](https://github.com/graycampbell/GCCountryPicker/pull/5) ([graycampbell](https://github.com/graycampbell))
