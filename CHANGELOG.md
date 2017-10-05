@@ -4,7 +4,9 @@
 
 **Release Notes**
 
-
+- A country picker view controller for iOS 11+ written in Swift.
+- Localized, alphabetized, and searchable, with a default list of 249 countries.
+- Provide your own list of countries for the picker to display using GCCountryPickerDataSource.
 
 **Merged Pull Requests**
 
