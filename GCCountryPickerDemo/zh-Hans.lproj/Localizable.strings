@@ -1,7 +1,8 @@
-/* 
-  Localizable.strings
-  GCCountryPickerDemo
+//
+// Localizable.strings
+// GCCountryPickerDemo
+//
+// Created by Gray Campbell on 10/5/17.
+//
 
-  Created by MacBook Pro on 10/5/17.
-  Copyright © 2017 Gray Campbell. All rights reserved.
-*/
+Countries = "国家";
