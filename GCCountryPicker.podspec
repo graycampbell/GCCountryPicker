@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '11.0'
 
-  s.source_files = 'GCCountryPicker/*.{h,m,swift}'
+  s.source_files = 'GCCountryPicker/*.{h,m,swift,plist}'
 
   s.requires_arc = true
   s.module_name = 'GCCountryPicker'
