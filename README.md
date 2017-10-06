@@ -63,13 +63,13 @@ pod 'GCCountryPicker'
 
 ### Documentation
 
-- [Classes](http://cocoadocs.org/docsets/GCCountryPicker/1.0.0/Classes.html)
-  - [GCCountry](http://cocoadocs.org/docsets/GCCountryPicker/1.0.0/Classes/GCCountry.html)
-  - [GCCountryPickerViewController](http://cocoadocs.org/docsets/GCCountryPicker/1.0.0/Classes/GCCountryPickerViewController.html)
+- [Classes](http://cocoadocs.org/docsets/GCCountryPicker/1.0.2/Classes.html)
+  - [GCCountry](http://cocoadocs.org/docsets/GCCountryPicker/1.0.2/Classes/GCCountry.html)
+  - [GCCountryPickerViewController](http://cocoadocs.org/docsets/GCCountryPicker/1.0.2/Classes/GCCountryPickerViewController.html)
 
-- [Protocols](http://cocoadocs.org/docsets/GCCountryPicker/1.0.0/Protocols.html)
-  - [GCCountryPickerDelegate](http://cocoadocs.org/docsets/GCCountryPicker/1.0.0/Protocols/GCCountryPickerDelegate.html)
-  - [GCCountryPickerDataSource](http://cocoadocs.org/docsets/GCCountryPicker/1.0.0/Protocols/GCCountryPickerDataSource.html)
+- [Protocols](http://cocoadocs.org/docsets/GCCountryPicker/1.0.2/Protocols.html)
+  - [GCCountryPickerDelegate](http://cocoadocs.org/docsets/GCCountryPicker/1.0.2/Protocols/GCCountryPickerDelegate.html)
+  - [GCCountryPickerDataSource](http://cocoadocs.org/docsets/GCCountryPicker/1.0.2/Protocols/GCCountryPickerDataSource.html)
 
 ### License
 
