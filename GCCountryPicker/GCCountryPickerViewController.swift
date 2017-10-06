@@ -203,6 +203,19 @@ extension GCCountryPickerViewController {
 
 extension GCCountryPickerViewController {
     
+    /// Asks the delegate for the height to use for the header of a particular section.
+    ///
+    /// This method allows the delegate to specify section headers with varying heights.
+    ///
+    /// - Parameter tableView: The table-view object requesting this information.
+    /// - Parameter section: An index number identifying a section of tableView.
+    /// - Returns: A nonnegative floating-point value that specifies the height (in points) of the header for section.
+    
+    public override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        return 28
+    }
+    
     /// Asks the delegate for a view object to display in the header of the specified section of the table view.
     ///
     /// The returned object can be a UILabel or UIImageView object, as well as a custom view. This method only works correctly when tableView(_:heightForHeaderInSection:) is also implemented.
