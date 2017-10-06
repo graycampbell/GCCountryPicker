@@ -73,4 +73,4 @@ pod 'GCCountryPicker'
 
 ### License
 
-GCCountryPicker is available under the MIT license. See the [LICENSE](https://github.com/graycampbell/GCCalendar/blob/master/LICENSE) file for more info.
+GCCountryPicker is available under the MIT license. See the [LICENSE](https://github.com/graycampbell/GCCountryPicker/blob/master/LICENSE) file for more info.
