@@ -1,3 +1,15 @@
+## [Version 1.0.2](https://github.com/graycampbell/GCCountryPicker/tree/1.0.2) - October 6, 2017
+
+[Full Changelog](https://github.com/graycampbell/GCCountryPicker/compare/1.0.1...1.0.2)
+
+**Release Notes**
+
+- Improves GCCountryPickerViewController conformance to UITableViewDelegate.
+
+**Merged Pull Requests**
+
+- Fix UITableViewDelegate implementation [\#9](https://github.com/graycampbell/GCCountryPicker/pull/9) ([graycampbell](https://github.com/graycampbell))
+
 ## [Version 1.0.1](https://github.com/graycampbell/GCCountryPicker/tree/1.0.1) - October 5, 2017
 
 [Full Changelog](https://github.com/graycampbell/GCCountryPicker/compare/1.0.0...1.0.1)
