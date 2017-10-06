@@ -1,3 +1,11 @@
+## [Version 1.0.1](https://github.com/graycampbell/GCCountryPicker/tree/1.0.1) - October 5, 2017
+
+[Full Changelog](https://github.com/graycampbell/GCCountryPicker/compare/1.0.0...1.0.1)
+
+**Release Notes**
+
+- Fixes a bug that prevented the default list of countries from being displayed by the country picker view controller.
+
 ## [Version 1.0.0](https://github.com/graycampbell/GCCountryPicker/tree/1.0.0) - October 5, 2017
 
 [Full Changelog](https://github.com/graycampbell/GCCountryPicker/compare/ce99cec...1.0.0)
