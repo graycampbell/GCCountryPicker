@@ -1,3 +1,11 @@
+## [Version 1.0.3](https://github.com/graycampbell/GCCountryPicker/tree/1.0.3) - October 8, 2017
+
+[Full Changelog](https://github.com/graycampbell/GCCountryPicker/compare/1.0.2...1.0.3)
+
+**Release Notes**
+
+- Adds `.jazzy.yml` file to allow for CocoaDocs parsing.
+
 ## [Version 1.0.2](https://github.com/graycampbell/GCCountryPicker/tree/1.0.2) - October 6, 2017
 
 [Full Changelog](https://github.com/graycampbell/GCCountryPicker/compare/1.0.1...1.0.2)
