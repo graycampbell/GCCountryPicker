@@ -1,0 +1,10 @@
+github_url: https://github.com/graycampbell/GCCountryPicker
+module: GCCountryPicker
+author_url: https://github.com/graycampbell
+author: graycampbell
+author_name: Gray Campbell
+swift_version: 4.0
+clean: true
+output: Documentation
+
+podspec: GCCountryPicker.podspec
