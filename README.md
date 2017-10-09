@@ -2,7 +2,7 @@
 
 [![Release](https://img.shields.io/github/release/graycampbell/GCCountryPicker.svg)](https://github.com/graycampbell/GCCountryPicker/releases/latest)
 [![CocoaPods](https://img.shields.io/cocoapods/v/GCCountryPicker.svg)](https://cocoapods.org/pods/GCCountryPicker)
-[![CocoaDocs](https://img.shields.io/badge/docs-100%25-brightgreen.svg)](http://cocoadocs.org/docsets/GCCountryPicker)
+[![Documentation](https://img.shields.io/badge/docs-100%25-brightgreen.svg)](https://graycampbell.github.io/GCCountryPicker)
 [![Codacy Code Quality](https://img.shields.io/codacy/grade/99eca2221a994d43954c30138416c249.svg)](https://www.codacy.com/app/graycampbell/GCCountryPicker?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=graycampbell/GCCountryPicker&amp;utm_campaign=Badge_Grade)
 [![Swift 4 Compatible](https://img.shields.io/badge/Swift_4-compatible-4BC51D.svg?style=flat)](https://developer.apple.com/swift)
 ![Platform](https://img.shields.io/cocoapods/p/GCCountryPicker.svg?style=flat)
@@ -63,13 +63,13 @@ pod 'GCCountryPicker'
 
 ### Documentation
 
-- [Classes](http://cocoadocs.org/docsets/GCCountryPicker/1.0.3/Classes.html)
-  - [GCCountry](http://cocoadocs.org/docsets/GCCountryPicker/1.0.3/Classes/GCCountry.html)
-  - [GCCountryPickerViewController](http://cocoadocs.org/docsets/GCCountryPicker/1.0.3/Classes/GCCountryPickerViewController.html)
+- [Classes](https://graycampbell.github.io/GCCountryPicker/Classes.html)
+  - [GCCountry](https://graycampbell.github.io/GCCountryPicker/Classes/GCCountry.html)
+  - [GCCountryPickerViewController](https://graycampbell.github.io/GCCountryPicker/Classes/GCCountryPickerViewController.html)
 
-- [Protocols](http://cocoadocs.org/docsets/GCCountryPicker/1.0.3/Protocols.html)
-  - [GCCountryPickerDelegate](http://cocoadocs.org/docsets/GCCountryPicker/1.0.3/Protocols/GCCountryPickerDelegate.html)
-  - [GCCountryPickerDataSource](http://cocoadocs.org/docsets/GCCountryPicker/1.0.3/Protocols/GCCountryPickerDataSource.html)
+- [Protocols](https://graycampbell.github.io/GCCountryPicker/Protocols.html)
+  - [GCCountryPickerDelegate](https://graycampbell.github.io/GCCountryPicker/Protocols/GCCountryPickerDelegate.html)
+  - [GCCountryPickerDataSource](https://graycampbell.github.io/GCCountryPicker/Protocols/GCCountryPickerDataSource.html)
 
 ### License
 
