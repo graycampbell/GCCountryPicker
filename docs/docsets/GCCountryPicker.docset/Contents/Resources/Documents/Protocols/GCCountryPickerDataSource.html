@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>GCCountryPickerDataSource Protocol Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Protocol/GCCountryPickerDataSource" class="dashAnchor"></a>
+    <a title="GCCountryPickerDataSource Protocol Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">GCCountryPicker Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/graycampbell/GCCountryPicker"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">GCCountryPicker Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        GCCountryPickerDataSource Protocol Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/GCCountry.html">GCCountry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GCCountryPickerViewController.html">GCCountryPickerViewController</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/GCCountryPickerDataSource.html">GCCountryPickerDataSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/GCCountryPickerDelegate.html">GCCountryPickerDelegate</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>GCCountryPickerDataSource</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">GCCountryPickerDataSource</span></code></pre>
+
+                </div>
+              </div>
+            <p>The data source of a GCCountryPickerViewController object must adopt the GCCountryPickerDataSource protocol.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15GCCountryPicker0aB10DataSourceP12countryCodesSaySSGAA0aB14ViewControllerC3for_tF"></a>
+                    <a name="//apple_ref/swift/Method/countryCodes(for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15GCCountryPicker0aB10DataSourceP12countryCodesSaySSGAA0aB14ViewControllerC3for_tF">countryCodes(for:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Asks the data source to provide a collection of ISO 3166-1 alpha-2 country codes for the specified country picker view controller.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">countryCodes</span><span class="p">(</span><span class="k">for</span> <span class="nv">countryPicker</span><span class="p">:</span> <span class="kt"><a href="../Classes/GCCountryPickerViewController.html">GCCountryPickerViewController</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>countryPicker</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The country picker view controller requesting this information.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A collection of ISO 3166-1 alpha-2 country codes for the specified country picker view controller.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="https://github.com/graycampbell" target="_blank" rel="external">Gray Campbell</a>. All rights reserved. (Last updated: 2017-10-08)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

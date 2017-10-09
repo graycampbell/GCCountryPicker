@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>GCCountryPickerDelegate Protocol Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Protocol/GCCountryPickerDelegate" class="dashAnchor"></a>
+    <a title="GCCountryPickerDelegate Protocol Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">GCCountryPicker Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/graycampbell/GCCountryPicker"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">GCCountryPicker Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        GCCountryPickerDelegate Protocol Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/GCCountry.html">GCCountry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GCCountryPickerViewController.html">GCCountryPickerViewController</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/GCCountryPickerDataSource.html">GCCountryPickerDataSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/GCCountryPickerDelegate.html">GCCountryPickerDelegate</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>GCCountryPickerDelegate</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">GCCountryPickerDelegate</span></code></pre>
+
+                </div>
+              </div>
+            <p>The delegate of a GCCountryPickerViewController object must adopt the GCCountryPickerDelegate protocol.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15GCCountryPicker0aB8DelegateP07countryB9DidCancelyAA0aB14ViewControllerCF"></a>
+                    <a name="//apple_ref/swift/Method/countryPickerDidCancel(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15GCCountryPicker0aB8DelegateP07countryB9DidCancelyAA0aB14ViewControllerCF">countryPickerDidCancel(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Tells the delegate that the user cancelled the pick operation.</p>
+
+<p>Your delegate’s implementation of this method should dismiss the country picker.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">countryPickerDidCancel</span><span class="p">(</span><span class="n">_</span> <span class="nv">countryPicker</span><span class="p">:</span> <span class="kt"><a href="../Classes/GCCountryPickerViewController.html">GCCountryPickerViewController</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>countryPicker</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The controller object managing the country picker interface.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15GCCountryPicker0aB8DelegateP07countryB0yAA0aB14ViewControllerC_AA0A0C16didSelectCountrytF"></a>
+                    <a name="//apple_ref/swift/Method/countryPicker(_:didSelectCountry:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15GCCountryPicker0aB8DelegateP07countryB0yAA0aB14ViewControllerC_AA0A0C16didSelectCountrytF">countryPicker(_:didSelectCountry:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Tells the delegate that the user picked a country.</p>
+
+<p>Your delegate’s implementation of this method should pass the country on to any custom code that needs it, and then it should dismiss the picker view.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">countryPicker</span><span class="p">(</span><span class="n">_</span> <span class="nv">countryPicker</span><span class="p">:</span> <span class="kt"><a href="../Classes/GCCountryPickerViewController.html">GCCountryPickerViewController</a></span><span class="p">,</span> <span class="n">didSelectCountry</span> <span class="nv">country</span><span class="p">:</span> <span class="kt"><a href="../Classes/GCCountry.html">GCCountry</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>countryPicker</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The controller object managing the country picker interface.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>country</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The country selected by the user.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="https://github.com/graycampbell" target="_blank" rel="external">Gray Campbell</a>. All rights reserved. (Last updated: 2017-10-08)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
