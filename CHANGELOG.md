@@ -1,3 +1,12 @@
+## [Version 1.0.4](https://github.com/graycampbell/GCCountryPicker/tree/1.0.4) - October 8, 2017
+
+[Full Changelog](https://github.com/graycampbell/GCCountryPicker/compare/1.0.3...1.0.4)
+
+**Release Notes**
+
+- Removes `.jazzy.yml` file.
+- Improves framework documentation.
+
 ## [Version 1.0.3](https://github.com/graycampbell/GCCountryPicker/tree/1.0.3) - October 8, 2017
 
 [Full Changelog](https://github.com/graycampbell/GCCountryPicker/compare/1.0.2...1.0.3)
