@@ -1,4 +1,4 @@
-![banner](Resources/README/Assets/Banner.png)
+![banner](https://github.com/graycampbell/GCCountryPicker/blob/master/Resources/README/Assets/Banner.png)
 
 [![Release](https://img.shields.io/github/release/graycampbell/GCCountryPicker.svg)](https://github.com/graycampbell/GCCountryPicker/releases/latest)
 [![CocoaPods](https://img.shields.io/cocoapods/v/GCCountryPicker.svg)](https://cocoapods.org/pods/GCCountryPicker)
