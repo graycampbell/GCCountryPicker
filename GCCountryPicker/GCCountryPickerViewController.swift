@@ -25,9 +25,7 @@ public final class GCCountryPickerViewController: UITableViewController {
     
     public var dataSource: GCCountryPickerDataSource?
     
-    /// A Boolean value indicating whether the country picker view controller should display calling codes for each country.
-    
-    public var shouldDisplayCallingCodes: Bool = false
+    fileprivate let displayMode: GCCountryPickerDisplayMode
     
     fileprivate var countries: [[GCCountry]]!
     fileprivate var searchController: UISearchController!
@@ -43,14 +41,17 @@ public final class GCCountryPickerViewController: UITableViewController {
     
     public required init?(coder aDecoder: NSCoder) {
         
-        super.init(coder: aDecoder)
+        return nil
     }
     
     /// Initializes and returns a newly allocated country picker view controller object.
     ///
+    /// - Parameter displayMode: The display mode for the country picker.
     /// - Returns: An initialized country picker view controller object.
     
-    public init() {
+    public init(displayMode: GCCountryPickerDisplayMode) {
+        
+        self.displayMode = displayMode
         
         super.init(style: .plain)
     }
@@ -191,13 +192,13 @@ extension GCCountryPickerViewController {
     
     fileprivate func configureTableView() {
         
-        if self.shouldDisplayCallingCodes {
+        switch self.displayMode {
             
-            self.tableView.register(GCCountryTableViewCell.self, forCellReuseIdentifier: GCCountryTableViewCell.identifier)
-        }
-        else {
+            case .withCallingCodes:
+                self.tableView.register(GCCountryTableViewCell.self, forCellReuseIdentifier: GCCountryTableViewCell.identifier)
             
-            self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "TableViewCell")
+            case .withoutCallingCodes:
+                self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "TableViewCell")
         }
         
         self.tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: "SectionHeaderView")
@@ -263,22 +264,22 @@ extension GCCountryPickerViewController {
         
         let country = self.countries[indexPath.section][indexPath.row]
         
-        if self.shouldDisplayCallingCodes {
+        switch self.displayMode {
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: GCCountryTableViewCell.identifier, for: indexPath) as! GCCountryTableViewCell
+            case .withCallingCodes:
+                let cell = tableView.dequeueReusableCell(withIdentifier: GCCountryTableViewCell.identifier, for: indexPath) as! GCCountryTableViewCell
+                
+                cell.titleLabel.text = country.localizedDisplayName
+                cell.accessoryLabel.text = "+" + country.callingCode
+                
+                return cell
             
-            cell.titleLabel.text = country.localizedDisplayName
-            cell.accessoryLabel.text = "+" + country.callingCode
-            
-            return cell
-        }
-        else {
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath)
-            
-            cell.textLabel?.text = country.localizedDisplayName
-            
-            return cell
+            case .withoutCallingCodes:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath)
+                
+                cell.textLabel?.text = country.localizedDisplayName
+                
+                return cell
         }
     }
 }
