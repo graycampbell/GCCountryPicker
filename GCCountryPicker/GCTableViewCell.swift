@@ -1,5 +1,5 @@
 //
-//  GCCountryTableViewCell.swift
+//  GCTableViewCell.swift
 //  GCCountryPicker
 //
 //  Created by Gray Campbell on 10/28/17.
@@ -9,9 +9,9 @@ import UIKit
 
 // MARK: Properties & Initializers
 
-class GCCountryTableViewCell: UITableViewCell {
+class GCTableViewCell: UITableViewCell {
     
-    static let identifier = "GCCountryTableViewCell"
+    static let identifier = "GCTableViewCell"
     
     let titleLabel = UILabel()
     let accessoryLabel = UILabel()
@@ -38,7 +38,7 @@ class GCCountryTableViewCell: UITableViewCell {
 
 // MARK: - Title Label
 
-extension GCCountryTableViewCell {
+extension GCTableViewCell {
     
     fileprivate func addTitleLabel() {
         
@@ -51,7 +51,7 @@ extension GCCountryTableViewCell {
 
 // MARK: - Accessory Label
 
-extension GCCountryTableViewCell {
+extension GCTableViewCell {
     
     fileprivate func addAccessoryLabel() {
         
@@ -66,7 +66,7 @@ extension GCCountryTableViewCell {
 
 // MARK: - Constraints
 
-extension GCCountryTableViewCell {
+extension GCTableViewCell {
     
     fileprivate func addConstraints() {
         

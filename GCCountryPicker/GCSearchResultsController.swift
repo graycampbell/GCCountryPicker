@@ -19,7 +19,28 @@ class GCSearchResultsController: UITableViewController {
     
     var delegate: GCSearchResultsDelegate?
     
+    fileprivate let displayMode: GCSearchResultsDisplayMode
+    
     fileprivate var searchResults = [GCSearchResult]()
+    
+    // MARK: Initializers
+    
+    required init?(coder aDecoder: NSCoder) {
+        
+        return nil
+    }
+    
+    /// Initializes and returns a newly allocated search results controller object.
+    ///
+    /// - Parameter displayMode: The display mode for the search results.
+    /// - Returns: An initialized search results controller object.
+    
+    init(displayMode: GCSearchResultsDisplayMode) {
+        
+        self.displayMode = displayMode
+        
+        super.init(style: .plain)
+    }
 }
 
 // MARK: - View
@@ -41,22 +62,15 @@ extension GCSearchResultsController {
     func update(withSearchResults searchResults: [GCSearchResult]) {
         
         self.searchResults = searchResults
-        self.tableView.reloadData()
-    }
-}
-
-// MARK: - UISearchBarDelegate
-
-extension GCSearchResultsController: UISearchBarDelegate {
-    
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         
         if !self.searchResults.isEmpty {
             
             let rect = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 0.5)
             
-            self.tableView.scrollRectToVisible(rect, animated: true)
+            self.tableView.scrollRectToVisible(rect, animated: false)
         }
+        
+        self.tableView.reloadData()
     }
 }
 
@@ -68,7 +82,14 @@ extension GCSearchResultsController {
         
         self.tableView.keyboardDismissMode = .onDrag
         
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "TableViewCell")
+        switch self.displayMode {
+            
+            case .withAccessoryTitles:
+                self.tableView.register(GCTableViewCell.self, forCellReuseIdentifier: GCTableViewCell.identifier)
+            
+            case .withoutAccessoryTitles:
+                self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
+        }
     }
 }
 
@@ -76,9 +97,9 @@ extension GCSearchResultsController {
 
 extension GCSearchResultsController {
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return self.searchResults.count
+        return 44
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -93,14 +114,31 @@ extension GCSearchResultsController {
 
 extension GCSearchResultsController {
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath)
+        return self.searchResults.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let searchResult = self.searchResults[indexPath.row]
         
-        cell.textLabel?.text = searchResult.displayTitle
-        
-        return cell
+        switch self.displayMode {
+            
+            case .withAccessoryTitles:
+                let cell = tableView.dequeueReusableCell(withIdentifier: GCTableViewCell.identifier, for: indexPath) as! GCTableViewCell
+                
+                cell.titleLabel.text = searchResult.displayTitle
+                cell.accessoryLabel.text = searchResult.accessoryTitle
+                
+                return cell
+            
+            case .withoutAccessoryTitles:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+                
+                cell.textLabel?.text = searchResult.displayTitle
+                
+                return cell
+        }
     }
 }

@@ -29,7 +29,7 @@ public final class GCCountryPickerViewController: UITableViewController {
     
     fileprivate var countries: [[GCCountry]]!
     fileprivate var searchController: UISearchController!
-    fileprivate var searchResultsController = GCSearchResultsController()
+    fileprivate var searchResultsController: GCSearchResultsController!
     
     fileprivate var collation = UILocalizedIndexedCollation.current()
     fileprivate var sectionTitles = UILocalizedIndexedCollation.current().sectionTitles
@@ -127,10 +127,18 @@ extension GCCountryPickerViewController {
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.cancel(barButtonItem:)))
         
+        switch self.displayMode {
+            
+            case .withCallingCodes:
+                self.searchResultsController = GCSearchResultsController(displayMode: .withAccessoryTitles)
+            
+            case .withoutCallingCodes:
+                self.searchResultsController = GCSearchResultsController(displayMode: .withoutAccessoryTitles)
+        }
+        
         self.searchController = UISearchController(searchResultsController: self.searchResultsController)
         
         self.searchController.searchResultsUpdater = self
-        self.searchController.searchBar.delegate = self.searchResultsController
         self.searchResultsController.delegate = self
         
         self.navigationItem.searchController = self.searchController
@@ -159,9 +167,15 @@ extension GCCountryPickerViewController: UISearchResultsUpdating {
                 
                 for country in self.countries.joined() {
                     
-                    if let _ = country.localizedDisplayName.localizedLowercase.range(of: "\\b\(searchText)", options: .regularExpression, range: nil, locale: .current) {
+                    if let _ = country.localizedDisplayName.localizedLowercase.range(of: "\\b(\(searchText))", options: .regularExpression, range: nil, locale: .current) {
                         
-                        let searchResult = GCSearchResult(object: country, displayTitle: country.localizedDisplayName)
+                        let searchResult = GCSearchResult(object: country, displayTitle: country.localizedDisplayName, accessoryTitle: "+" + country.callingCode)
+                        
+                        searchResults.append(searchResult)
+                    }
+                    else if self.displayMode == .withCallingCodes, let _ = country.callingCode.range(of: "^(\(searchText))", options: .regularExpression, range: nil, locale: nil) {
+                        
+                        let searchResult = GCSearchResult(object: country, displayTitle: country.localizedDisplayName, accessoryTitle: "+" + country.callingCode)
                         
                         searchResults.append(searchResult)
                     }
@@ -195,10 +209,10 @@ extension GCCountryPickerViewController {
         switch self.displayMode {
             
             case .withCallingCodes:
-                self.tableView.register(GCCountryTableViewCell.self, forCellReuseIdentifier: GCCountryTableViewCell.identifier)
+                self.tableView.register(GCTableViewCell.self, forCellReuseIdentifier: GCTableViewCell.identifier)
             
             case .withoutCallingCodes:
-                self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "TableViewCell")
+                self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
         }
         
         self.tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: "SectionHeaderView")
@@ -267,7 +281,7 @@ extension GCCountryPickerViewController {
         switch self.displayMode {
             
             case .withCallingCodes:
-                let cell = tableView.dequeueReusableCell(withIdentifier: GCCountryTableViewCell.identifier, for: indexPath) as! GCCountryTableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: GCTableViewCell.identifier, for: indexPath) as! GCTableViewCell
                 
                 cell.titleLabel.text = country.localizedDisplayName
                 cell.accessoryLabel.text = "+" + country.callingCode
@@ -275,7 +289,7 @@ extension GCCountryPickerViewController {
                 return cell
             
             case .withoutCallingCodes:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath)
+                let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
                 
                 cell.textLabel?.text = country.localizedDisplayName
                 
