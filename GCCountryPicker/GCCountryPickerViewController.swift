@@ -168,7 +168,7 @@ extension GCCountryPickerViewController: UISearchResultsUpdating {
             }
         }
         
-        self.searchResultsController.searchResults = searchResults
+        self.searchResultsController.update(withSearchResults: searchResults)
     }
 }
 

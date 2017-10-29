@@ -19,15 +19,7 @@ class GCSearchResultsController: UITableViewController {
     
     var delegate: GCSearchResultsDelegate?
     
-    /// An ordered collection of search results displayed by the controller.
-    
-    var searchResults = [GCSearchResult]() {
-        
-        didSet {
-            
-            self.tableView.reloadData()
-        }
-    }
+    fileprivate var searchResults = [GCSearchResult]()
 }
 
 // MARK: - View
@@ -39,6 +31,17 @@ extension GCSearchResultsController {
         super.viewDidLoad()
         
         self.configureTableView()
+    }
+}
+
+// MARK: - Updating
+
+extension GCSearchResultsController {
+    
+    func update(withSearchResults searchResults: [GCSearchResult]) {
+        
+        self.searchResults = searchResults
+        self.tableView.reloadData()
     }
 }
 
