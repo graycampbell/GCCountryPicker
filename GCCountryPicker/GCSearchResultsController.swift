@@ -21,7 +21,7 @@ class GCSearchResultsController: UITableViewController {
     
     /// An ordered collection of search results displayed by the controller.
     
-    var searchResults = [GCCountry]() {
+    var searchResults = [GCSearchResult]() {
         
         didSet {
             
@@ -80,7 +80,9 @@ extension GCSearchResultsController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        self.delegate?.searchResultsController(self, didSelectSearchResult: self.searchResults[indexPath.row])
+        let searchResult = self.searchResults[indexPath.row]
+        
+        self.delegate?.searchResultsController(self, didSelectSearchResult: searchResult)
     }
 }
 
@@ -92,7 +94,9 @@ extension GCSearchResultsController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath)
         
-        cell.textLabel?.text = self.searchResults[indexPath.row].localizedDisplayName
+        let searchResult = self.searchResults[indexPath.row]
+        
+        cell.textLabel?.text = searchResult.displayTitle
         
         return cell
     }
