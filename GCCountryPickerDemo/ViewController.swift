@@ -41,7 +41,7 @@ extension ViewController {
     
     @objc func showCountryPicker(barButtonItem: UIBarButtonItem) {
         
-        let countryPickerViewController = GCCountryPickerViewController()
+        let countryPickerViewController = GCCountryPickerViewController(displayMode: .withCallingCodes)
         
         countryPickerViewController.delegate = self
         countryPickerViewController.navigationItem.title = NSLocalizedString("Countries", comment: "")

@@ -16,5 +16,5 @@ protocol GCSearchResultsDelegate {
     /// - Parameter searchResultsController: The controller object managing the search results interface.
     /// - Parameter searchResult: The search result selected by the user.
     
-    func searchResultsController(_ searchResultsController: GCSearchResultsController, didSelectSearchResult searchResult: GCCountry)
+    func searchResultsController(_ searchResultsController: GCSearchResultsController, didSelectSearchResult searchResult: GCSearchResult)
 }

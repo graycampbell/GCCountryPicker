@@ -25,31 +25,33 @@ public final class GCCountryPickerViewController: UITableViewController {
     
     public var dataSource: GCCountryPickerDataSource?
     
+    fileprivate let displayMode: GCCountryPickerDisplayMode
+    
     fileprivate var countries: [[GCCountry]]!
     fileprivate var searchController: UISearchController!
-    fileprivate var searchResultsController = GCSearchResultsController()
+    fileprivate var searchResultsController: GCSearchResultsController!
     
     fileprivate var collation = UILocalizedIndexedCollation.current()
     fileprivate var sectionTitles = UILocalizedIndexedCollation.current().sectionTitles
     fileprivate var sectionIndexTitles = UILocalizedIndexedCollation.current().sectionIndexTitles
     
-    fileprivate var defaultCountryCodes: [String] {
-        
-        return ["AD", "AE", "AF", "AG", "AI", "AL", "AM", "AO", "AQ", "AR", "AS", "AT", "AU", "AW", "AX", "AZ", "BA", "BB", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BL", "BM", "BN", "BO", "BQ", "BR", "BS", "BT", "BV", "BW", "BY", "BZ", "CA", "CC", "CD", "CF", "CG", "CH", "CI", "CK", "CL", "CM", "CN", "CO", "CR", "CU", "CV", "CW", "CX", "CY", "CZ", "DE", "DJ", "DK", "DM", "DO", "DZ", "EC", "EE", "EG", "EH", "ER", "ES", "ET", "FI", "FJ", "FK", "FM", "FO", "FR", "GA", "GB", "GD", "GE", "GF", "GG", "GH", "GI", "GL", "GM", "GN", "GP", "GQ", "GR", "GS", "GT", "GU", "GW", "GY", "HK", "HM", "HN", "HR", "HT", "HU", "ID", "IE", "IL", "IM", "IN", "IO", "IQ", "IR", "IS", "IT", "JE", "JM", "JO", "JP", "KE", "KG", "KH", "KI", "KM", "KN", "KP", "KR", "KW", "KY", "KZ", "LA", "LB", "LC", "LI", "LK", "LR", "LS", "LT", "LU", "LV", "LY", "MA", "MC", "MD", "ME", "MF", "MG", "MH", "MK", "ML", "MM", "MN", "MO", "MP", "MQ", "MR", "MS", "MT", "MU", "MV", "MW", "MX", "MY", "MZ", "NA", "NC", "NE", "NF", "NG", "NI", "NL", "NO", "NP", "NR", "NU", "NZ", "OM", "PA", "PE", "PF", "PG", "PH", "PK", "PL", "PM", "PN", "PR", "PS", "PT", "PW", "PY", "QA", "RE", "RO", "RS", "RU", "RW", "SA", "SB", "SC", "SD", "SE", "SG", "SH", "SI", "SJ", "SK", "SL", "SM", "SN", "SO", "SR", "SS", "ST", "SV", "SX", "SY", "SZ", "TC", "TD", "TF", "TG", "TH", "TJ", "TK", "TL", "TM", "TN", "TO", "TR", "TT", "TV", "TW", "TZ", "UA", "UG", "UM", "US", "UY", "UZ", "VA", "VC", "VE", "VG", "VI", "VN", "VU", "WF", "WS", "YE", "YT", "ZA", "ZM", "ZW"]
-    }
+    fileprivate let defaultCountryCodes: [String] = ["AD", "AE", "AF", "AG", "AI", "AL", "AM", "AO", "AQ", "AR", "AS", "AT", "AU", "AW", "AX", "AZ", "BA", "BB", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BL", "BM", "BN", "BO", "BQ", "BR", "BS", "BT", "BV", "BW", "BY", "BZ", "CA", "CC", "CD", "CF", "CG", "CH", "CI", "CK", "CL", "CM", "CN", "CO", "CR", "CU", "CV", "CW", "CX", "CY", "CZ", "DE", "DJ", "DK", "DM", "DO", "DZ", "EC", "EE", "EG", "EH", "ER", "ES", "ET", "FI", "FJ", "FK", "FM", "FO", "FR", "GA", "GB", "GD", "GE", "GF", "GG", "GH", "GI", "GL", "GM", "GN", "GP", "GQ", "GR", "GS", "GT", "GU", "GW", "GY", "HK", "HM", "HN", "HR", "HT", "HU", "ID", "IE", "IL", "IM", "IN", "IO", "IQ", "IR", "IS", "IT", "JE", "JM", "JO", "JP", "KE", "KG", "KH", "KI", "KM", "KN", "KP", "KR", "KW", "KY", "KZ", "LA", "LB", "LC", "LI", "LK", "LR", "LS", "LT", "LU", "LV", "LY", "MA", "MC", "MD", "ME", "MF", "MG", "MH", "MK", "ML", "MM", "MN", "MO", "MP", "MQ", "MR", "MS", "MT", "MU", "MV", "MW", "MX", "MY", "MZ", "NA", "NC", "NE", "NF", "NG", "NI", "NL", "NO", "NP", "NR", "NU", "NZ", "OM", "PA", "PE", "PF", "PG", "PH", "PK", "PL", "PM", "PN", "PR", "PS", "PT", "PW", "PY", "QA", "RE", "RO", "RS", "RU", "RW", "SA", "SB", "SC", "SD", "SE", "SG", "SH", "SI", "SJ", "SK", "SL", "SM", "SN", "SO", "SR", "SS", "ST", "SV", "SX", "SY", "SZ", "TC", "TD", "TF", "TG", "TH", "TJ", "TK", "TL", "TM", "TN", "TO", "TR", "TT", "TV", "TW", "TZ", "UA", "UG", "UM", "US", "UY", "UZ", "VA", "VC", "VE", "VG", "VI", "VN", "VU", "WF", "WS", "YE", "YT", "ZA", "ZM", "ZW"]
     
     // MARK: Initializers
     
     public required init?(coder aDecoder: NSCoder) {
         
-        super.init(coder: aDecoder)
+        return nil
     }
     
     /// Initializes and returns a newly allocated country picker view controller object.
     ///
+    /// - Parameter displayMode: The display mode for the country picker.
     /// - Returns: An initialized country picker view controller object.
     
-    public init() {
+    public init(displayMode: GCCountryPickerDisplayMode) {
+        
+        self.displayMode = displayMode
         
         super.init(style: .plain)
     }
@@ -125,10 +127,18 @@ extension GCCountryPickerViewController {
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.cancel(barButtonItem:)))
         
+        switch self.displayMode {
+            
+            case .withCallingCodes:
+                self.searchResultsController = GCSearchResultsController(displayMode: .withAccessoryTitles)
+            
+            case .withoutCallingCodes:
+                self.searchResultsController = GCSearchResultsController(displayMode: .withoutAccessoryTitles)
+        }
+        
         self.searchController = UISearchController(searchResultsController: self.searchResultsController)
         
         self.searchController.searchResultsUpdater = self
-        self.searchController.searchBar.delegate = self.searchResultsController
         self.searchResultsController.delegate = self
         
         self.navigationItem.searchController = self.searchController
@@ -149,17 +159,45 @@ extension GCCountryPickerViewController: UISearchResultsUpdating {
     
     public func updateSearchResults(for searchController: UISearchController) {
         
-        var searchResults = [GCCountry]()
+        var searchResults = [GCSearchResult]()
         
         if let searchText = searchController.searchBar.text?.localizedLowercase.replacingOccurrences(of: "(^\\s+)|(\\s+$)", with: "", options: .regularExpression, range: nil) {
             
             if !searchText.isEmpty {
                 
-                searchResults = self.countries.joined().filter { $0.localizedDisplayName.localizedLowercase.range(of: "\\b\(searchText)", options: .regularExpression, range: nil, locale: .current) != nil }
+                for country in self.countries.joined() {
+                    
+                    var countryMatchesSearchText: Bool = false
+                    
+                    if let _ = country.localizedDisplayName.localizedLowercase.range(of: "\\b(\(searchText))", options: .regularExpression, range: nil, locale: .current) {
+                        
+                        countryMatchesSearchText = true
+                    }
+                    else if self.displayMode == .withCallingCodes, let _ = country.callingCode?.range(of: "^(\(searchText))", options: .regularExpression, range: nil, locale: nil) {
+                        
+                        countryMatchesSearchText = true
+                    }
+                    
+                    if countryMatchesSearchText {
+                        
+                        let searchResult: GCSearchResult
+                        
+                        if let callingCode = country.callingCode {
+                            
+                            searchResult = GCSearchResult(object: country, displayTitle: country.localizedDisplayName, accessoryTitle: "+" + callingCode)
+                        }
+                        else {
+                            
+                            searchResult = GCSearchResult(object: country, displayTitle: country.localizedDisplayName, accessoryTitle: nil)
+                        }
+                        
+                        searchResults.append(searchResult)
+                    }
+                }
             }
         }
         
-        self.searchResultsController.searchResults = searchResults
+        self.searchResultsController.update(withSearchResults: searchResults)
     }
 }
 
@@ -167,9 +205,12 @@ extension GCCountryPickerViewController: UISearchResultsUpdating {
 
 extension GCCountryPickerViewController: GCSearchResultsDelegate {
     
-    func searchResultsController(_ searchResultsController: GCSearchResultsController, didSelectSearchResult searchResult: GCCountry) {
+    func searchResultsController(_ searchResultsController: GCSearchResultsController, didSelectSearchResult searchResult: GCSearchResult) {
         
-        self.delegate?.countryPicker(self, didSelectCountry: searchResult)
+        if let country = searchResult.object as? GCCountry {
+            
+            self.delegate?.countryPicker(self, didSelectCountry: country)
+        }
     }
 }
 
@@ -179,7 +220,15 @@ extension GCCountryPickerViewController {
     
     fileprivate func configureTableView() {
         
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "TableViewCell")
+        switch self.displayMode {
+            
+            case .withCallingCodes:
+                self.tableView.register(GCTableViewCell.self, forCellReuseIdentifier: GCTableViewCell.identifier)
+            
+            case .withoutCallingCodes:
+                self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
+        }
+        
         self.tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: "SectionHeaderView")
     }
 }
@@ -191,6 +240,11 @@ extension GCCountryPickerViewController {
     public override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
         return 28
+    }
+    
+    public override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return 44
     }
     
     public override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -236,10 +290,32 @@ extension GCCountryPickerViewController {
     
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath)
+        let country = self.countries[indexPath.section][indexPath.row]
         
-        cell.textLabel?.text = self.countries[indexPath.section][indexPath.row].localizedDisplayName
-        
-        return cell
+        switch self.displayMode {
+            
+            case .withCallingCodes:
+                let cell = tableView.dequeueReusableCell(withIdentifier: GCTableViewCell.identifier, for: indexPath) as! GCTableViewCell
+                
+                cell.titleLabel.text = country.localizedDisplayName
+                
+                if let callingCode = country.callingCode {
+                    
+                    cell.accessoryLabel.text = "+" + callingCode
+                }
+                else {
+                    
+                    cell.accessoryLabel.text = nil
+                }
+                
+                return cell
+            
+            case .withoutCallingCodes:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+                
+                cell.textLabel?.text = country.localizedDisplayName
+                
+                return cell
+        }
     }
 }
