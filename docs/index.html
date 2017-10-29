@@ -73,36 +73,67 @@
 <img src="https://img.shields.io/cocoapods/p/GCCountryPicker.svg?style=flat" alt="Platform">
 <a href="https://github.com/graycampbell/GCCountryPicker/blob/master/LICENSE"><img src="https://img.shields.io/cocoapods/l/GCCountryPicker.svg" alt="License"></a></p>
 <h3 id='cocoapods' class='heading'>CocoaPods</h3>
-<pre class="highlight plaintext"><code>pod 'GCCountryPicker'
-</code></pre>
+<pre class="highlight plaintext">
+  <code>
+    pod 'GCCountryPicker'
+  </code>
+</pre>
 <h3 id='implementation' class='heading'>Implementation</h3>
 
 <ol>
-<li><p>Add GCCountryPicker to your file&rsquo;s import statements.</p>
-<pre class="highlight plaintext"><code>import GCCountryPicker
-</code></pre></li>
-<li><p>Create an instance of GCCountryPickerViewController.</p>
-<pre class="highlight plaintext"><code>let countryPickerViewController = GCCountryPickerViewController(displayMode: .withoutCallingCodes)
-</code></pre></li>
-<li><p>Set the delegate, data source (optional), and navigation title.</p>
-<pre class="highlight plaintext"><code>countryPickerViewController.delegate = self
-countryPickerViewController.dataSource = self
-countryPickerViewController.navigationItem.title = "Countries"
-</code></pre></li>
-<li><p>Embed the country picker view controller in a navigation controller.</p>
-<pre class="highlight plaintext"><code>let navigationController = UINavigationController(rootViewController: countryPickerViewController)
-</code></pre></li>
-<li><p>Present the navigation controller.</p>
-<pre class="highlight plaintext"><code>self.present(navigationController, animated: true, completion: nil)
-</code></pre></li>
-<li><p>Implement GCCountryPickerDelegate.</p>
-<pre class="highlight plaintext"><code>func countryPickerDidCancel(_ countryPicker: GCCountryPickerViewController)
+  <li><p>Add GCCountryPicker to your file&rsquo;s import statements.</p>
+    <pre class="highlight plaintext">
+      <code>
+        import GCCountryPicker
+      </code>
+    </pre>
+  </li>
+  <li><p>Create an instance of GCCountryPickerViewController.</p>
+    <pre class="highlight plaintext">
+      <code>
+        let countryPickerViewController = GCCountryPickerViewController(displayMode: .withoutCallingCodes)
+      </code>
+    </pre>
+  </li>
+  <li><p>Set the delegate, data source (optional), and navigation title.</p>
+    <pre class="highlight plaintext">
+      <code>
+        countryPickerViewController.delegate = self
+        countryPickerViewController.dataSource = self
+        countryPickerViewController.navigationItem.title = "Countries"
+      </code>
+    </pre>
+  </li>
+  <li><p>Embed the country picker view controller in a navigation controller.</p>
+    <pre class="highlight plaintext">
+      <code>
+        let navigationController = UINavigationController(rootViewController: countryPickerViewController)
+      </code>
+    </pre>
+  </li>
+  <li><p>Present the navigation controller.</p>
+    <pre class="highlight plaintext">
+      <code>
+        self.present(navigationController, animated: true, completion: nil)
+      </code>
+    </pre>
+  </li>
+  <li><p>Implement GCCountryPickerDelegate.</p>
+    <pre class="highlight plaintext">
+      <code>
+        func countryPickerDidCancel(_ countryPicker: GCCountryPickerViewController)
 
-func countryPicker(_ countryPicker: GCCountryPickerViewController, didSelectCountry country: GCCountry)
-</code></pre></li>
-<li><p>Implement GCCountryPickerDataSource if necessary.</p>
-<pre class="highlight plaintext"><code>func countryCodes(for countryPicker: GCCountryPickerViewController) -&gt; [String]
-</code></pre></li>
+        func countryPicker(_ countryPicker: GCCountryPickerViewController, didSelectCountry country: GCCountry)
+      </code>
+    </pre>
+  </li>
+  <li><p>Implement GCCountryPickerDataSource if necessary.</p>
+    <pre class="highlight plaintext">
+      <code>
+        func countryCodes(for countryPicker: GCCountryPickerViewController) -&gt; [String]
+      </code>
+    </pre>
+  </li>
 </ol>
 <h3 id='documentation' class='heading'>Documentation</h3>
 
@@ -112,6 +143,11 @@ func countryPicker(_ countryPicker: GCCountryPickerViewController, didSelectCoun
 <ul>
 <li><a href="https://graycampbell.github.io/GCCountryPicker/Classes/GCCountry.html">GCCountry</a></li>
 <li><a href="https://graycampbell.github.io/GCCountryPicker/Classes/GCCountryPickerViewController.html">GCCountryPickerViewController</a></li>
+</ul></li>
+<li><p><a href="https://graycampbell.github.io/GCCountryPicker/Enums.html">Enumerations</a></p>
+
+<ul>
+<li><a href="https://graycampbell.github.io/GCCountryPicker/Enums/GCCountryPickerDisplayMode.html">GCCountryPickerDisplayMode</a></li>
 </ul></li>
 <li><p><a href="https://graycampbell.github.io/GCCountryPicker/Protocols.html">Protocols</a></p>
 
