@@ -2,84 +2,77 @@
   "warnings": [
     {
       "file": "/Users/Macintosh/Apps/GCCountryPicker/GCCountryPicker/GCCountryPickerViewController.swift",
-      "line": 42,
+      "line": 43,
       "symbol": "GCCountryPickerViewController.init(coder:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/Macintosh/Apps/GCCountryPicker/GCCountryPicker/GCCountryPickerViewController.swift",
-      "line": 64,
+      "line": 62,
       "symbol": "GCCountryPickerViewController.viewDidLoad()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/Macintosh/Apps/GCCountryPicker/GCCountryPicker/GCCountryPickerViewController.swift",
-      "line": 160,
+      "line": 150,
       "symbol": "GCCountryPickerViewController.updateSearchResults(for:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/Macintosh/Apps/GCCountryPicker/GCCountryPicker/GCCountryPickerViewController.swift",
-      "line": 240,
+      "line": 191,
       "symbol": "GCCountryPickerViewController.tableView(_:heightForHeaderInSection:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/Macintosh/Apps/GCCountryPicker/GCCountryPicker/GCCountryPickerViewController.swift",
-      "line": 245,
-      "symbol": "GCCountryPickerViewController.tableView(_:heightForRowAt:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/Macintosh/Apps/GCCountryPicker/GCCountryPicker/GCCountryPickerViewController.swift",
-      "line": 250,
+      "line": 196,
       "symbol": "GCCountryPickerViewController.tableView(_:viewForHeaderInSection:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/Macintosh/Apps/GCCountryPicker/GCCountryPicker/GCCountryPickerViewController.swift",
-      "line": 261,
+      "line": 207,
       "symbol": "GCCountryPickerViewController.tableView(_:didSelectRowAt:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/Macintosh/Apps/GCCountryPicker/GCCountryPicker/GCCountryPickerViewController.swift",
-      "line": 271,
+      "line": 217,
       "symbol": "GCCountryPickerViewController.numberOfSections(in:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/Macintosh/Apps/GCCountryPicker/GCCountryPicker/GCCountryPickerViewController.swift",
-      "line": 276,
+      "line": 222,
       "symbol": "GCCountryPickerViewController.tableView(_:numberOfRowsInSection:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/Macintosh/Apps/GCCountryPicker/GCCountryPicker/GCCountryPickerViewController.swift",
-      "line": 281,
+      "line": 227,
       "symbol": "GCCountryPickerViewController.sectionIndexTitles(for:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/Macintosh/Apps/GCCountryPicker/GCCountryPicker/GCCountryPickerViewController.swift",
-      "line": 286,
+      "line": 232,
       "symbol": "GCCountryPickerViewController.tableView(_:sectionForSectionIndexTitle:at:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/Macintosh/Apps/GCCountryPicker/GCCountryPicker/GCCountryPickerViewController.swift",
-      "line": 291,
+      "line": 237,
       "symbol": "GCCountryPickerViewController.tableView(_:cellForRowAt:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
