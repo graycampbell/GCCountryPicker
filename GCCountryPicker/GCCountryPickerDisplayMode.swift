@@ -11,11 +11,11 @@ import UIKit
 
 public enum GCCountryPickerDisplayMode {
     
-    /// The country picker will include country calling codes.
+    /// The country picker will include calling codes.
     
     case withCallingCodes
     
-    /// The country picker will not include country calling codes.
+    /// The country picker will not include calling codes.
     
     case withoutCallingCodes
 }
