@@ -25,10 +25,10 @@ pod 'GCCountryPicker'
 2. Create an instance of GCCountryPickerViewController.
 
     ```
-    let countryPickerViewController = GCCountryPickerViewController()
+    let countryPickerViewController = GCCountryPickerViewController(displayMode: .withoutCallingCodes)
     ```
 
-3. Set the delegate, data source, and navigation title.
+3. Set the delegate, data source (optional), and navigation title.
 
     ```
     countryPickerViewController.delegate = self
@@ -52,10 +52,11 @@ pod 'GCCountryPicker'
 
     ```
     func countryPickerDidCancel(_ countryPicker: GCCountryPickerViewController)
+    
     func countryPicker(_ countryPicker: GCCountryPickerViewController, didSelectCountry country: GCCountry)
     ```
 
-7. Implement GCCountryPickerDataSource (optional).
+7. Implement GCCountryPickerDataSource if necessary.
 
     ```
     func countryCodes(for countryPicker: GCCountryPickerViewController) -> [String]
