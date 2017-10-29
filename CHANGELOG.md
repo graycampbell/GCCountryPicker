@@ -5,7 +5,6 @@
 **Release Notes**
 
 - Adds option to display calling codes using GCCountryPickerDisplayMode.
-- Updates documentation.
 
 **Merged Pull Requests**
 
