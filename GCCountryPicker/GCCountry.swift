@@ -36,7 +36,7 @@ public final class GCCountry: NSObject {
     /// Initializes and returns a newly allocated country.
     ///
     /// - Parameter countryCode: An ISO 3166-1 alpha-2 code representing a country.
-    /// - Returns: An initialized country containing a country code and localized display name.
+    /// - Returns: An initialized country containing a country code, calling code, and localized display name.
     
     public init?(countryCode: String) {
         
