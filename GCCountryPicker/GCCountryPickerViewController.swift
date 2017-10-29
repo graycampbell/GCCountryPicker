@@ -150,13 +150,21 @@ extension GCCountryPickerViewController: UISearchResultsUpdating {
     
     public func updateSearchResults(for searchController: UISearchController) {
         
-        var searchResults = [GCCountry]()
+        var searchResults = [GCSearchResult]()
         
         if let searchText = searchController.searchBar.text?.localizedLowercase.replacingOccurrences(of: "(^\\s+)|(\\s+$)", with: "", options: .regularExpression, range: nil) {
             
             if !searchText.isEmpty {
                 
-                searchResults = self.countries.joined().filter { $0.localizedDisplayName.localizedLowercase.range(of: "\\b\(searchText)", options: .regularExpression, range: nil, locale: .current) != nil }
+                for country in self.countries.joined() {
+                    
+                    if let _ = country.localizedDisplayName.localizedLowercase.range(of: "\\b\(searchText)", options: .regularExpression, range: nil, locale: .current) {
+                        
+                        let searchResult = GCSearchResult(object: country, displayTitle: country.localizedDisplayName)
+                        
+                        searchResults.append(searchResult)
+                    }
+                }
             }
         }
         
@@ -168,9 +176,12 @@ extension GCCountryPickerViewController: UISearchResultsUpdating {
 
 extension GCCountryPickerViewController: GCSearchResultsDelegate {
     
-    func searchResultsController(_ searchResultsController: GCSearchResultsController, didSelectSearchResult searchResult: GCCountry) {
+    func searchResultsController(_ searchResultsController: GCSearchResultsController, didSelectSearchResult searchResult: GCSearchResult) {
         
-        self.delegate?.countryPicker(self, didSelectCountry: searchResult)
+        if let country = searchResult.object as? GCCountry {
+            
+            self.delegate?.countryPicker(self, didSelectCountry: country)
+        }
     }
 }
 
