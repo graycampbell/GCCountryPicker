@@ -9,7 +9,7 @@ import UIKit
 
 // MARK: Properties & Initializers
 
-/// The GCCountry class defines an object that contains the ISO 3166-1 alpha-2 country code and localized display name for a country.
+/// The GCCountry class defines an object that contains the country code, calling code, and localized display name for a country.
 
 public final class GCCountry: NSObject {
     
