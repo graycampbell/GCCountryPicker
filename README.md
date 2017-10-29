@@ -67,6 +67,9 @@ pod 'GCCountryPicker'
 - [Classes](https://graycampbell.github.io/GCCountryPicker/Classes.html)
   - [GCCountry](https://graycampbell.github.io/GCCountryPicker/Classes/GCCountry.html)
   - [GCCountryPickerViewController](https://graycampbell.github.io/GCCountryPicker/Classes/GCCountryPickerViewController.html)
+  
+- [Enumerations](https://graycampbell.github.io/GCCountryPicker/Enums.html)
+  - [GCCountryPickerDisplayMode](https://graycampbell.github.io/GCCountryPicker/Enums/GCCountryPickerDisplayMode.html)
 
 - [Protocols](https://graycampbell.github.io/GCCountryPicker/Protocols.html)
   - [GCCountryPickerDelegate](https://graycampbell.github.io/GCCountryPicker/Protocols/GCCountryPickerDelegate.html)
