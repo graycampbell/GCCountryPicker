@@ -1,3 +1,16 @@
+## [Version 2.0.0](https://github.com/graycampbell/GCCountryPicker/tree/2.0.0) - October 29, 2017
+
+[Full Changelog](https://github.com/graycampbell/GCCountryPicker/compare/1.0.4...2.0.0)
+
+**Release Notes**
+
+- Adds option to display calling codes using GCCountryPickerDisplayMode.
+- Updates documentation.
+
+**Merged Pull Requests**
+
+- Add option to display calling codes in country picker view controller [\#10](https://github.com/graycampbell/GCCountryPicker/pull/10) ([graycampbell](https://github.com/graycampbell))
+
 ## [Version 1.0.4](https://github.com/graycampbell/GCCountryPicker/tree/1.0.4) - October 8, 2017
 
 [Full Changelog](https://github.com/graycampbell/GCCountryPicker/compare/1.0.3...1.0.4)
