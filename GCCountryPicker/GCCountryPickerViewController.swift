@@ -167,15 +167,29 @@ extension GCCountryPickerViewController: UISearchResultsUpdating {
                 
                 for country in self.countries.joined() {
                     
+                    var countryMatchesSearchText: Bool = false
+                    
                     if let _ = country.localizedDisplayName.localizedLowercase.range(of: "\\b(\(searchText))", options: .regularExpression, range: nil, locale: .current) {
                         
-                        let searchResult = GCSearchResult(object: country, displayTitle: country.localizedDisplayName, accessoryTitle: "+" + country.callingCode)
-                        
-                        searchResults.append(searchResult)
+                        countryMatchesSearchText = true
                     }
-                    else if self.displayMode == .withCallingCodes, let _ = country.callingCode.range(of: "^(\(searchText))", options: .regularExpression, range: nil, locale: nil) {
+                    else if self.displayMode == .withCallingCodes, let _ = country.callingCode?.range(of: "^(\(searchText))", options: .regularExpression, range: nil, locale: nil) {
                         
-                        let searchResult = GCSearchResult(object: country, displayTitle: country.localizedDisplayName, accessoryTitle: "+" + country.callingCode)
+                        countryMatchesSearchText = true
+                    }
+                    
+                    if countryMatchesSearchText {
+                        
+                        let searchResult: GCSearchResult
+                        
+                        if let callingCode = country.callingCode {
+                            
+                            searchResult = GCSearchResult(object: country, displayTitle: country.localizedDisplayName, accessoryTitle: "+" + callingCode)
+                        }
+                        else {
+                            
+                            searchResult = GCSearchResult(object: country, displayTitle: country.localizedDisplayName, accessoryTitle: nil)
+                        }
                         
                         searchResults.append(searchResult)
                     }
@@ -284,7 +298,15 @@ extension GCCountryPickerViewController {
                 let cell = tableView.dequeueReusableCell(withIdentifier: GCTableViewCell.identifier, for: indexPath) as! GCTableViewCell
                 
                 cell.titleLabel.text = country.localizedDisplayName
-                cell.accessoryLabel.text = "+" + country.callingCode
+                
+                if let callingCode = country.callingCode {
+                    
+                    cell.accessoryLabel.text = "+" + callingCode
+                }
+                else {
+                    
+                    cell.accessoryLabel.text = nil
+                }
                 
                 return cell
             
