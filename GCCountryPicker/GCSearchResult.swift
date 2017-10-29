@@ -18,4 +18,8 @@ struct GCSearchResult {
     /// The display title for the search result.
     
     let displayTitle: String
+    
+    /// The accessory title for the search result.
+    
+    let accessoryTitle: String?
 }
