@@ -44,6 +44,7 @@ extension ViewController {
         let countryPickerViewController = GCCountryPickerViewController()
         
         countryPickerViewController.delegate = self
+        countryPickerViewController.shouldDisplayCallingCodes = true
         countryPickerViewController.navigationItem.title = NSLocalizedString("Countries", comment: "")
         
         let navigationController = UINavigationController(rootViewController: countryPickerViewController)
