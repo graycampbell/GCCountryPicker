@@ -19,14 +19,27 @@ class GCSearchResultsController: UITableViewController {
     
     var delegate: GCSearchResultsDelegate?
     
-    /// An ordered collection of search results displayed by the controller.
+    fileprivate let displayMode: GCSearchResultsDisplayMode
     
-    var searchResults = [GCCountry]() {
+    fileprivate var searchResults = [GCSearchResult]()
+    
+    // MARK: Initializers
+    
+    required init?(coder aDecoder: NSCoder) {
         
-        didSet {
-            
-            self.tableView.reloadData()
-        }
+        return nil
+    }
+    
+    /// Initializes and returns a newly allocated search results controller object.
+    ///
+    /// - Parameter displayMode: The display mode for the search results.
+    /// - Returns: An initialized search results controller object.
+    
+    init(displayMode: GCSearchResultsDisplayMode) {
+        
+        self.displayMode = displayMode
+        
+        super.init(style: .plain)
     }
 }
 
@@ -42,18 +55,22 @@ extension GCSearchResultsController {
     }
 }
 
-// MARK: - UISearchBarDelegate
+// MARK: - Updating
 
-extension GCSearchResultsController: UISearchBarDelegate {
+extension GCSearchResultsController {
     
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+    func update(withSearchResults searchResults: [GCSearchResult]) {
+        
+        self.searchResults = searchResults
         
         if !self.searchResults.isEmpty {
             
             let rect = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 0.5)
             
-            self.tableView.scrollRectToVisible(rect, animated: true)
+            self.tableView.scrollRectToVisible(rect, animated: false)
         }
+        
+        self.tableView.reloadData()
     }
 }
 
@@ -65,11 +82,35 @@ extension GCSearchResultsController {
         
         self.tableView.keyboardDismissMode = .onDrag
         
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "TableViewCell")
+        switch self.displayMode {
+            
+            case .withAccessoryTitles:
+                self.tableView.register(GCTableViewCell.self, forCellReuseIdentifier: GCTableViewCell.identifier)
+            
+            case .withoutAccessoryTitles:
+                self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
+        }
     }
 }
 
 // MARK: - UITableViewDelegate
+
+extension GCSearchResultsController {
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return 44
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let searchResult = self.searchResults[indexPath.row]
+        
+        self.delegate?.searchResultsController(self, didSelectSearchResult: searchResult)
+    }
+}
+
+// MARK: - UITableViewDataSource
 
 extension GCSearchResultsController {
     
@@ -78,22 +119,26 @@ extension GCSearchResultsController {
         return self.searchResults.count
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        self.delegate?.searchResultsController(self, didSelectSearchResult: self.searchResults[indexPath.row])
-    }
-}
-
-// MARK: - UITableViewDataSource
-
-extension GCSearchResultsController {
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath)
+        let searchResult = self.searchResults[indexPath.row]
         
-        cell.textLabel?.text = self.searchResults[indexPath.row].localizedDisplayName
-        
-        return cell
+        switch self.displayMode {
+            
+            case .withAccessoryTitles:
+                let cell = tableView.dequeueReusableCell(withIdentifier: GCTableViewCell.identifier, for: indexPath) as! GCTableViewCell
+                
+                cell.titleLabel.text = searchResult.displayTitle
+                cell.accessoryLabel.text = searchResult.accessoryTitle
+                
+                return cell
+            
+            case .withoutAccessoryTitles:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+                
+                cell.textLabel?.text = searchResult.displayTitle
+                
+                return cell
+        }
     }
 }
