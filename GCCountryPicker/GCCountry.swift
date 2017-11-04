@@ -43,14 +43,9 @@ public final class GCCountry: NSObject {
         self.countryCode = countryCode.uppercased()
         self.callingCode = GCCountry.callingCode(forCountryCode: self.countryCode)
         
-        if let localizedDisplayName = Locale(identifier: Locale.preferredLanguages.first!).localizedString(forRegionCode: self.countryCode) {
-            
-            self.localizedDisplayName = localizedDisplayName
-        }
-        else {
-            
-            return nil
-        }
+        guard let localizedDisplayName = Locale(identifier: Locale.preferredLanguages.first!).localizedString(forRegionCode: self.countryCode) else { return nil }
+        
+        self.localizedDisplayName = localizedDisplayName
     }
     
     // MARK: Calling Code
