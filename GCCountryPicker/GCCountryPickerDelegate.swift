@@ -9,7 +9,7 @@ import UIKit
 
 /// The delegate of a GCCountryPickerViewController object must adopt the GCCountryPickerDelegate protocol.
 
-public protocol GCCountryPickerDelegate {
+public protocol GCCountryPickerDelegate: class {
     
     /// Tells the delegate that the user cancelled the pick operation.
     ///
