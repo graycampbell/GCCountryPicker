@@ -18,7 +18,19 @@
 		E21360001FAD6A19005B0ACF /* GCSearchResultsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2135FF41FAD6A19005B0ACF /* GCSearchResultsDelegate.swift */; };
 		E21360011FAD6A19005B0ACF /* GCSearchResultsDisplayMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2135FF51FAD6A19005B0ACF /* GCSearchResultsDisplayMode.swift */; };
 		E21360021FAD6A19005B0ACF /* GCTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2135FF61FAD6A19005B0ACF /* GCTableViewCell.swift */; };
+		E21360401FAD6FD7005B0ACF /* GCCountryPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2644B3B1F7D92DD0034EA06 /* GCCountryPicker.framework */; };
+		E213604C1FAD7123005B0ACF /* GCCountryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E213604B1FAD7123005B0ACF /* GCCountryTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E21360411FAD6FD7005B0ACF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E2644B321F7D92DD0034EA06 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E2644B3A1F7D92DD0034EA06;
+			remoteInfo = GCCountryPicker;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		E2135FEC1FAD6A19005B0ACF /* GCCountry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCCountry.swift; sourceTree = "<group>"; };
@@ -33,10 +45,21 @@
 		E2135FF51FAD6A19005B0ACF /* GCSearchResultsDisplayMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCSearchResultsDisplayMode.swift; sourceTree = "<group>"; };
 		E2135FF61FAD6A19005B0ACF /* GCTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCTableViewCell.swift; sourceTree = "<group>"; };
 		E2135FF71FAD6A19005B0ACF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E213603B1FAD6FD7005B0ACF /* GCCountryPickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GCCountryPickerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E21360481FAD6FEA005B0ACF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E213604B1FAD7123005B0ACF /* GCCountryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCCountryTests.swift; sourceTree = "<group>"; };
 		E2644B3B1F7D92DD0034EA06 /* GCCountryPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GCCountryPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E21360381FAD6FD7005B0ACF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E21360401FAD6FD7005B0ACF /* GCCountryPicker.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E2644B371F7D92DD0034EA06 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -67,10 +90,21 @@
 			path = Sources/GCCountryPicker;
 			sourceTree = "<group>";
 		};
+		E21360461FAD6FEA005B0ACF /* GCCountryPickerTests */ = {
+			isa = PBXGroup;
+			children = (
+				E213604B1FAD7123005B0ACF /* GCCountryTests.swift */,
+				E21360481FAD6FEA005B0ACF /* Info.plist */,
+			);
+			name = GCCountryPickerTests;
+			path = Tests/GCCountryPickerTests;
+			sourceTree = "<group>";
+		};
 		E2644B311F7D92DD0034EA06 = {
 			isa = PBXGroup;
 			children = (
 				E2135FEB1FAD6A19005B0ACF /* GCCountryPicker */,
+				E21360461FAD6FEA005B0ACF /* GCCountryPickerTests */,
 				E2644B3C1F7D92DD0034EA06 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -79,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				E2644B3B1F7D92DD0034EA06 /* GCCountryPicker.framework */,
+				E213603B1FAD6FD7005B0ACF /* GCCountryPickerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -97,6 +132,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		E213603A1FAD6FD7005B0ACF /* GCCountryPickerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E21360451FAD6FD7005B0ACF /* Build configuration list for PBXNativeTarget "GCCountryPickerTests" */;
+			buildPhases = (
+				E21360371FAD6FD7005B0ACF /* Sources */,
+				E21360381FAD6FD7005B0ACF /* Frameworks */,
+				E21360391FAD6FD7005B0ACF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E21360421FAD6FD7005B0ACF /* PBXTargetDependency */,
+			);
+			name = GCCountryPickerTests;
+			productName = GCCountryPickerTests;
+			productReference = E213603B1FAD6FD7005B0ACF /* GCCountryPickerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		E2644B3A1F7D92DD0034EA06 /* GCCountryPicker */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E2644B431F7D92DD0034EA06 /* Build configuration list for PBXNativeTarget "GCCountryPicker" */;
@@ -125,6 +178,10 @@
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Gray Campbell";
 				TargetAttributes = {
+					E213603A1FAD6FD7005B0ACF = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
 					E2644B3A1F7D92DD0034EA06 = {
 						CreatedOnToolsVersion = 9.0;
 						LastSwiftMigration = 0900;
@@ -145,11 +202,19 @@
 			projectRoot = "";
 			targets = (
 				E2644B3A1F7D92DD0034EA06 /* GCCountryPicker */,
+				E213603A1FAD6FD7005B0ACF /* GCCountryPickerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		E21360391FAD6FD7005B0ACF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E2644B391F7D92DD0034EA06 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -160,6 +225,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		E21360371FAD6FD7005B0ACF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E213604C1FAD7123005B0ACF /* GCCountryTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E2644B361F7D92DD0034EA06 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -179,7 +252,43 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		E21360421FAD6FD7005B0ACF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E2644B3A1F7D92DD0034EA06 /* GCCountryPicker */;
+			targetProxy = E21360411FAD6FD7005B0ACF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		E21360431FAD6FD7005B0ACF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Tests/GCCountryPickerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.graycampbell.GCCountryPickerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E21360441FAD6FD7005B0ACF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Tests/GCCountryPickerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.graycampbell.GCCountryPickerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		E2644B411F7D92DD0034EA06 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -339,6 +448,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E21360451FAD6FD7005B0ACF /* Build configuration list for PBXNativeTarget "GCCountryPickerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E21360431FAD6FD7005B0ACF /* Debug */,
+				E21360441FAD6FD7005B0ACF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E2644B351F7D92DD0034EA06 /* Build configuration list for PBXProject "GCCountryPicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
