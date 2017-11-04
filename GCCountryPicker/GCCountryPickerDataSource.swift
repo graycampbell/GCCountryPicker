@@ -9,7 +9,7 @@ import UIKit
 
 /// The data source of a GCCountryPickerViewController object must adopt the GCCountryPickerDataSource protocol.
 
-public protocol GCCountryPickerDataSource {
+public protocol GCCountryPickerDataSource: class {
     
     /// Asks the data source to provide a collection of ISO 3166-1 alpha-2 country codes for the specified country picker view controller.
     ///

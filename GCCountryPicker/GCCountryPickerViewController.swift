@@ -19,11 +19,11 @@ public final class GCCountryPickerViewController: UITableViewController {
     
     /// The object that acts as the delegate of the country picker view controller.
     
-    public var delegate: GCCountryPickerDelegate?
+    public weak var delegate: GCCountryPickerDelegate?
     
     /// The object that acts as the data source of the country picker view controller.
     
-    public var dataSource: GCCountryPickerDataSource?
+    public weak var dataSource: GCCountryPickerDataSource?
     
     fileprivate let displayMode: GCCountryPickerDisplayMode
     
