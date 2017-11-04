@@ -14,6 +14,10 @@
 pod 'GCCountryPicker'
 ```
 
+### Swift Package Manager
+
+**Swift Package Manager does not currently support iOS projects. A Package.swift file has been included in GCCountryPicker in anticipation of Swift Package Manager support for iOS. For more information, read the [documentation](https://swift.org/package-manager/) or visit [apple/swift-package-manager](https://github.com/apple/swift-package-manager).**
+
 ### Implementation
 
 1. Add GCCountryPicker to your file's import statements.
