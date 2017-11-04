@@ -7,36 +7,59 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E20304331F857F55000AC08C /* GCCountryPickerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20304321F857F55000AC08C /* GCCountryPickerDataSource.swift */; };
-		E25E7C5B1FA53FCE00B9FA1E /* GCTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25E7C5A1FA53FCE00B9FA1E /* GCTableViewCell.swift */; };
-		E25E7C5D1FA57F1200B9FA1E /* GCSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25E7C5C1FA57F1200B9FA1E /* GCSearchResult.swift */; };
-		E25E7C611FA5884C00B9FA1E /* GCCountryPickerDisplayMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25E7C601FA5884C00B9FA1E /* GCCountryPickerDisplayMode.swift */; };
-		E25E7C631FA59D4700B9FA1E /* GCSearchResultsDisplayMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25E7C621FA59D4700B9FA1E /* GCSearchResultsDisplayMode.swift */; };
-		E2644B401F7D92DD0034EA06 /* GCCountryPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = E2644B3E1F7D92DD0034EA06 /* GCCountryPicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E27C15561F81955600DA9091 /* GCSearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27C15551F81955600DA9091 /* GCSearchResultsController.swift */; };
-		E27C15581F81963600DA9091 /* GCSearchResultsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27C15571F81963600DA9091 /* GCSearchResultsDelegate.swift */; };
-		E2F9BFAE1F7D959A00131AF8 /* GCCountryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F9BFAD1F7D959A00131AF8 /* GCCountryPickerViewController.swift */; };
-		E2F9BFB11F7D97D000131AF8 /* GCCountryPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F9BFB01F7D97D000131AF8 /* GCCountryPickerDelegate.swift */; };
-		E2F9BFB51F7DA08900131AF8 /* GCCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F9BFB41F7DA08900131AF8 /* GCCountry.swift */; };
+		E2135FF81FAD6A19005B0ACF /* GCCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2135FEC1FAD6A19005B0ACF /* GCCountry.swift */; };
+		E2135FF91FAD6A19005B0ACF /* GCCountryPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = E2135FED1FAD6A19005B0ACF /* GCCountryPicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E2135FFA1FAD6A19005B0ACF /* GCCountryPickerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2135FEE1FAD6A19005B0ACF /* GCCountryPickerDataSource.swift */; };
+		E2135FFB1FAD6A19005B0ACF /* GCCountryPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2135FEF1FAD6A19005B0ACF /* GCCountryPickerDelegate.swift */; };
+		E2135FFC1FAD6A19005B0ACF /* GCCountryPickerDisplayMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2135FF01FAD6A19005B0ACF /* GCCountryPickerDisplayMode.swift */; };
+		E2135FFD1FAD6A19005B0ACF /* GCCountryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2135FF11FAD6A19005B0ACF /* GCCountryPickerViewController.swift */; };
+		E2135FFE1FAD6A19005B0ACF /* GCSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2135FF21FAD6A19005B0ACF /* GCSearchResult.swift */; };
+		E2135FFF1FAD6A19005B0ACF /* GCSearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2135FF31FAD6A19005B0ACF /* GCSearchResultsController.swift */; };
+		E21360001FAD6A19005B0ACF /* GCSearchResultsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2135FF41FAD6A19005B0ACF /* GCSearchResultsDelegate.swift */; };
+		E21360011FAD6A19005B0ACF /* GCSearchResultsDisplayMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2135FF51FAD6A19005B0ACF /* GCSearchResultsDisplayMode.swift */; };
+		E21360021FAD6A19005B0ACF /* GCTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2135FF61FAD6A19005B0ACF /* GCTableViewCell.swift */; };
+		E21360401FAD6FD7005B0ACF /* GCCountryPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2644B3B1F7D92DD0034EA06 /* GCCountryPicker.framework */; };
+		E213604C1FAD7123005B0ACF /* GCCountryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E213604B1FAD7123005B0ACF /* GCCountryTests.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		E21360411FAD6FD7005B0ACF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E2644B321F7D92DD0034EA06 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E2644B3A1F7D92DD0034EA06;
+			remoteInfo = GCCountryPicker;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		E20304321F857F55000AC08C /* GCCountryPickerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCCountryPickerDataSource.swift; sourceTree = "<group>"; };
-		E25E7C5A1FA53FCE00B9FA1E /* GCTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCTableViewCell.swift; sourceTree = "<group>"; };
-		E25E7C5C1FA57F1200B9FA1E /* GCSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCSearchResult.swift; sourceTree = "<group>"; };
-		E25E7C601FA5884C00B9FA1E /* GCCountryPickerDisplayMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCCountryPickerDisplayMode.swift; sourceTree = "<group>"; };
-		E25E7C621FA59D4700B9FA1E /* GCSearchResultsDisplayMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCSearchResultsDisplayMode.swift; sourceTree = "<group>"; };
+		E2135FEC1FAD6A19005B0ACF /* GCCountry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCCountry.swift; sourceTree = "<group>"; };
+		E2135FED1FAD6A19005B0ACF /* GCCountryPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCCountryPicker.h; sourceTree = "<group>"; };
+		E2135FEE1FAD6A19005B0ACF /* GCCountryPickerDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCCountryPickerDataSource.swift; sourceTree = "<group>"; };
+		E2135FEF1FAD6A19005B0ACF /* GCCountryPickerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCCountryPickerDelegate.swift; sourceTree = "<group>"; };
+		E2135FF01FAD6A19005B0ACF /* GCCountryPickerDisplayMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCCountryPickerDisplayMode.swift; sourceTree = "<group>"; };
+		E2135FF11FAD6A19005B0ACF /* GCCountryPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCCountryPickerViewController.swift; sourceTree = "<group>"; };
+		E2135FF21FAD6A19005B0ACF /* GCSearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCSearchResult.swift; sourceTree = "<group>"; };
+		E2135FF31FAD6A19005B0ACF /* GCSearchResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCSearchResultsController.swift; sourceTree = "<group>"; };
+		E2135FF41FAD6A19005B0ACF /* GCSearchResultsDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCSearchResultsDelegate.swift; sourceTree = "<group>"; };
+		E2135FF51FAD6A19005B0ACF /* GCSearchResultsDisplayMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCSearchResultsDisplayMode.swift; sourceTree = "<group>"; };
+		E2135FF61FAD6A19005B0ACF /* GCTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCTableViewCell.swift; sourceTree = "<group>"; };
+		E2135FF71FAD6A19005B0ACF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E213603B1FAD6FD7005B0ACF /* GCCountryPickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GCCountryPickerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E21360481FAD6FEA005B0ACF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E213604B1FAD7123005B0ACF /* GCCountryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCCountryTests.swift; sourceTree = "<group>"; };
 		E2644B3B1F7D92DD0034EA06 /* GCCountryPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GCCountryPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E2644B3E1F7D92DD0034EA06 /* GCCountryPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCCountryPicker.h; sourceTree = "<group>"; };
-		E2644B3F1F7D92DD0034EA06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E27C15551F81955600DA9091 /* GCSearchResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCSearchResultsController.swift; sourceTree = "<group>"; };
-		E27C15571F81963600DA9091 /* GCSearchResultsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCSearchResultsDelegate.swift; sourceTree = "<group>"; };
-		E2F9BFAD1F7D959A00131AF8 /* GCCountryPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCCountryPickerViewController.swift; sourceTree = "<group>"; };
-		E2F9BFB01F7D97D000131AF8 /* GCCountryPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCCountryPickerDelegate.swift; sourceTree = "<group>"; };
-		E2F9BFB41F7DA08900131AF8 /* GCCountry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCCountry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E21360381FAD6FD7005B0ACF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E21360401FAD6FD7005B0ACF /* GCCountryPicker.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E2644B371F7D92DD0034EA06 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -47,10 +70,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E2135FEB1FAD6A19005B0ACF /* GCCountryPicker */ = {
+			isa = PBXGroup;
+			children = (
+				E2135FED1FAD6A19005B0ACF /* GCCountryPicker.h */,
+				E2135FEC1FAD6A19005B0ACF /* GCCountry.swift */,
+				E2135FEE1FAD6A19005B0ACF /* GCCountryPickerDataSource.swift */,
+				E2135FEF1FAD6A19005B0ACF /* GCCountryPickerDelegate.swift */,
+				E2135FF01FAD6A19005B0ACF /* GCCountryPickerDisplayMode.swift */,
+				E2135FF11FAD6A19005B0ACF /* GCCountryPickerViewController.swift */,
+				E2135FF21FAD6A19005B0ACF /* GCSearchResult.swift */,
+				E2135FF31FAD6A19005B0ACF /* GCSearchResultsController.swift */,
+				E2135FF41FAD6A19005B0ACF /* GCSearchResultsDelegate.swift */,
+				E2135FF51FAD6A19005B0ACF /* GCSearchResultsDisplayMode.swift */,
+				E2135FF61FAD6A19005B0ACF /* GCTableViewCell.swift */,
+				E2135FF71FAD6A19005B0ACF /* Info.plist */,
+			);
+			name = GCCountryPicker;
+			path = Sources/GCCountryPicker;
+			sourceTree = "<group>";
+		};
+		E21360461FAD6FEA005B0ACF /* GCCountryPickerTests */ = {
+			isa = PBXGroup;
+			children = (
+				E213604B1FAD7123005B0ACF /* GCCountryTests.swift */,
+				E21360481FAD6FEA005B0ACF /* Info.plist */,
+			);
+			name = GCCountryPickerTests;
+			path = Tests/GCCountryPickerTests;
+			sourceTree = "<group>";
+		};
 		E2644B311F7D92DD0034EA06 = {
 			isa = PBXGroup;
 			children = (
-				E2644B3D1F7D92DD0034EA06 /* GCCountryPicker */,
+				E2135FEB1FAD6A19005B0ACF /* GCCountryPicker */,
+				E21360461FAD6FEA005B0ACF /* GCCountryPickerTests */,
 				E2644B3C1F7D92DD0034EA06 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -59,27 +113,9 @@
 			isa = PBXGroup;
 			children = (
 				E2644B3B1F7D92DD0034EA06 /* GCCountryPicker.framework */,
+				E213603B1FAD6FD7005B0ACF /* GCCountryPickerTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		E2644B3D1F7D92DD0034EA06 /* GCCountryPicker */ = {
-			isa = PBXGroup;
-			children = (
-				E2644B3E1F7D92DD0034EA06 /* GCCountryPicker.h */,
-				E2F9BFB41F7DA08900131AF8 /* GCCountry.swift */,
-				E20304321F857F55000AC08C /* GCCountryPickerDataSource.swift */,
-				E2F9BFB01F7D97D000131AF8 /* GCCountryPickerDelegate.swift */,
-				E25E7C601FA5884C00B9FA1E /* GCCountryPickerDisplayMode.swift */,
-				E2F9BFAD1F7D959A00131AF8 /* GCCountryPickerViewController.swift */,
-				E25E7C5C1FA57F1200B9FA1E /* GCSearchResult.swift */,
-				E27C15571F81963600DA9091 /* GCSearchResultsDelegate.swift */,
-				E25E7C621FA59D4700B9FA1E /* GCSearchResultsDisplayMode.swift */,
-				E27C15551F81955600DA9091 /* GCSearchResultsController.swift */,
-				E25E7C5A1FA53FCE00B9FA1E /* GCTableViewCell.swift */,
-				E2644B3F1F7D92DD0034EA06 /* Info.plist */,
-			);
-			path = GCCountryPicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -89,13 +125,31 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2644B401F7D92DD0034EA06 /* GCCountryPicker.h in Headers */,
+				E2135FF91FAD6A19005B0ACF /* GCCountryPicker.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		E213603A1FAD6FD7005B0ACF /* GCCountryPickerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E21360451FAD6FD7005B0ACF /* Build configuration list for PBXNativeTarget "GCCountryPickerTests" */;
+			buildPhases = (
+				E21360371FAD6FD7005B0ACF /* Sources */,
+				E21360381FAD6FD7005B0ACF /* Frameworks */,
+				E21360391FAD6FD7005B0ACF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E21360421FAD6FD7005B0ACF /* PBXTargetDependency */,
+			);
+			name = GCCountryPickerTests;
+			productName = GCCountryPickerTests;
+			productReference = E213603B1FAD6FD7005B0ACF /* GCCountryPickerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		E2644B3A1F7D92DD0034EA06 /* GCCountryPicker */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E2644B431F7D92DD0034EA06 /* Build configuration list for PBXNativeTarget "GCCountryPicker" */;
@@ -120,9 +174,14 @@
 		E2644B321F7D92DD0034EA06 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0910;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Gray Campbell";
 				TargetAttributes = {
+					E213603A1FAD6FD7005B0ACF = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
 					E2644B3A1F7D92DD0034EA06 = {
 						CreatedOnToolsVersion = 9.0;
 						LastSwiftMigration = 0900;
@@ -143,11 +202,19 @@
 			projectRoot = "";
 			targets = (
 				E2644B3A1F7D92DD0034EA06 /* GCCountryPicker */,
+				E213603A1FAD6FD7005B0ACF /* GCCountryPickerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		E21360391FAD6FD7005B0ACF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E2644B391F7D92DD0034EA06 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -158,26 +225,70 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		E21360371FAD6FD7005B0ACF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E213604C1FAD7123005B0ACF /* GCCountryTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E2644B361F7D92DD0034EA06 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E27C15561F81955600DA9091 /* GCSearchResultsController.swift in Sources */,
-				E20304331F857F55000AC08C /* GCCountryPickerDataSource.swift in Sources */,
-				E2F9BFAE1F7D959A00131AF8 /* GCCountryPickerViewController.swift in Sources */,
-				E2F9BFB11F7D97D000131AF8 /* GCCountryPickerDelegate.swift in Sources */,
-				E25E7C631FA59D4700B9FA1E /* GCSearchResultsDisplayMode.swift in Sources */,
-				E2F9BFB51F7DA08900131AF8 /* GCCountry.swift in Sources */,
-				E25E7C5B1FA53FCE00B9FA1E /* GCTableViewCell.swift in Sources */,
-				E25E7C5D1FA57F1200B9FA1E /* GCSearchResult.swift in Sources */,
-				E27C15581F81963600DA9091 /* GCSearchResultsDelegate.swift in Sources */,
-				E25E7C611FA5884C00B9FA1E /* GCCountryPickerDisplayMode.swift in Sources */,
+				E2135FFD1FAD6A19005B0ACF /* GCCountryPickerViewController.swift in Sources */,
+				E2135FFC1FAD6A19005B0ACF /* GCCountryPickerDisplayMode.swift in Sources */,
+				E2135FFF1FAD6A19005B0ACF /* GCSearchResultsController.swift in Sources */,
+				E21360011FAD6A19005B0ACF /* GCSearchResultsDisplayMode.swift in Sources */,
+				E2135FFB1FAD6A19005B0ACF /* GCCountryPickerDelegate.swift in Sources */,
+				E2135FF81FAD6A19005B0ACF /* GCCountry.swift in Sources */,
+				E21360001FAD6A19005B0ACF /* GCSearchResultsDelegate.swift in Sources */,
+				E21360021FAD6A19005B0ACF /* GCTableViewCell.swift in Sources */,
+				E2135FFE1FAD6A19005B0ACF /* GCSearchResult.swift in Sources */,
+				E2135FFA1FAD6A19005B0ACF /* GCCountryPickerDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		E21360421FAD6FD7005B0ACF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E2644B3A1F7D92DD0034EA06 /* GCCountryPicker */;
+			targetProxy = E21360411FAD6FD7005B0ACF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		E21360431FAD6FD7005B0ACF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Tests/GCCountryPickerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.graycampbell.GCCountryPickerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E21360441FAD6FD7005B0ACF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Tests/GCCountryPickerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.graycampbell.GCCountryPickerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		E2644B411F7D92DD0034EA06 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -301,7 +412,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = GCCountryPicker/Info.plist;
+				INFOPLIST_FILE = Sources/GCCountryPicker/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.graycampbell.GCCountryPicker;
@@ -323,7 +434,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = GCCountryPicker/Info.plist;
+				INFOPLIST_FILE = Sources/GCCountryPicker/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.graycampbell.GCCountryPicker;
@@ -337,6 +448,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E21360451FAD6FD7005B0ACF /* Build configuration list for PBXNativeTarget "GCCountryPickerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E21360431FAD6FD7005B0ACF /* Debug */,
+				E21360441FAD6FD7005B0ACF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E2644B351F7D92DD0034EA06 /* Build configuration list for PBXProject "GCCountryPicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
