@@ -51,7 +51,7 @@ class GCCountryTests: XCTestCase {
         XCTAssert(country2?.callingCode == "1", String(describing: country2?.callingCode))
     }
     
-    func testAllPossibleCountries() {
+    func testPossibleCountries() {
         
         for countryCode in Locale.isoRegionCodes {
             
