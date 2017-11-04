@@ -1,3 +1,17 @@
+## [Version 2.1.0](https://github.com/graycampbell/GCCountryPicker/tree/2.1.0) - November 4, 2017
+
+[Full Changelog](https://github.com/graycampbell/GCCountryPicker/compare/2.0.0...2.1.0)
+
+**Release Notes**
+
+- Adds basic unit tests.
+- Adds theoretical support for Swift Package Manager.
+
+**Merged Pull Requests**
+
+- Add theoretical Swift Package Manager support [\#13](https://github.com/graycampbell/GCCountryPicker/pull/13) ([graycampbell](https://github.com/graycampbell))
+- Refactor [\#12](https://github.com/graycampbell/GCCountryPicker/pull/12) ([graycampbell](https://github.com/graycampbell))
+
 ## [Version 2.0.0](https://github.com/graycampbell/GCCountryPicker/tree/2.0.0) - October 29, 2017
 
 [Full Changelog](https://github.com/graycampbell/GCCountryPicker/compare/1.0.4...2.0.0)
