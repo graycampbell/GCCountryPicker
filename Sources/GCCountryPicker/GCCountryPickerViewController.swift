@@ -220,16 +220,8 @@ extension GCCountryPickerViewController {
     
     fileprivate func configureTableView() {
         
-        switch self.displayMode {
-            
-            case .withCallingCodes:
-                self.tableView.register(GCTableViewCell.self, forCellReuseIdentifier: GCTableViewCell.identifier)
-            
-            case .withoutCallingCodes:
-                self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
-        }
-        
-        self.tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: "SectionHeaderView")
+        self.tableView.rowHeight = 44
+        self.tableView.sectionHeaderHeight = 28
     }
 }
 
@@ -237,23 +229,13 @@ extension GCCountryPickerViewController {
 
 extension GCCountryPickerViewController {
     
-    public override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
-        return 28
-    }
-    
-    public override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        return 44
-    }
-    
     public override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SectionHeaderView")
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SectionHeaderView") ?? UITableViewHeaderFooterView(reuseIdentifier: "SectionHeaderView")
         
-        headerView?.textLabel?.text = self.sectionTitles[section]
-        headerView?.textLabel?.font = UIFont.boldSystemFont(ofSize: UIFont.labelFontSize)
-        headerView?.textLabel?.textColor = .black
+        headerView.textLabel?.text = self.sectionTitles[section]
+        headerView.textLabel?.font = UIFont.boldSystemFont(ofSize: UIFont.labelFontSize)
+        headerView.textLabel?.textColor = .black
         
         return headerView
     }
@@ -295,7 +277,7 @@ extension GCCountryPickerViewController {
         switch self.displayMode {
             
             case .withCallingCodes:
-                let cell = tableView.dequeueReusableCell(withIdentifier: GCTableViewCell.identifier, for: indexPath) as! GCTableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: GCTableViewCell.identifier) as? GCTableViewCell ?? GCTableViewCell(style: .default)
                 
                 cell.titleLabel.text = country.localizedDisplayName
                 
@@ -311,7 +293,7 @@ extension GCCountryPickerViewController {
                 return cell
             
             case .withoutCallingCodes:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+                let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell") ?? UITableViewCell(style: .default, reuseIdentifier: "UITableViewCell")
                 
                 cell.textLabel?.text = country.localizedDisplayName
                 
