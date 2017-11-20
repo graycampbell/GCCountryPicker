@@ -39,11 +39,6 @@ public final class GCCountryPickerViewController: UITableViewController {
     
     // MARK: Initializers
     
-    public required init?(coder aDecoder: NSCoder) {
-        
-        return nil
-    }
-    
     /// Initializes and returns a newly allocated country picker view controller object.
     ///
     /// - Parameter displayMode: The display mode for the country picker.
@@ -54,6 +49,11 @@ public final class GCCountryPickerViewController: UITableViewController {
         self.displayMode = displayMode
         
         super.init(style: .plain)
+    }
+    
+    public required init?(coder aDecoder: NSCoder) {
+        
+        return nil
     }
 }
 
@@ -293,7 +293,7 @@ extension GCCountryPickerViewController {
                 return cell
             
             case .withoutCallingCodes:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell") ?? UITableViewCell(style: .default, reuseIdentifier: "UITableViewCell")
+                let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell") ?? UITableViewCell(style: .default, reuseIdentifier: "TableViewCell")
                 
                 cell.textLabel?.text = country.localizedDisplayName
                 
