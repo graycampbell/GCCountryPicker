@@ -141,8 +141,15 @@ extension GCCountryPickerViewController {
         self.searchController.searchResultsUpdater = self
         self.searchResultsController.delegate = self
         
-        self.navigationItem.searchController = self.searchController
-        self.navigationItem.hidesSearchBarWhenScrolling = false
+        if #available(iOS 11.0, *) {
+            
+            self.navigationItem.searchController = self.searchController
+            self.navigationItem.hidesSearchBarWhenScrolling = false
+        }
+        else {
+            
+            self.tableView.tableHeaderView = self.searchController.searchBar
+        }
         
         self.definesPresentationContext = true
     }
