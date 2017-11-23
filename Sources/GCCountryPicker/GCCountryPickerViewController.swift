@@ -39,11 +39,6 @@ public final class GCCountryPickerViewController: UITableViewController {
     
     // MARK: Initializers
     
-    public required init?(coder aDecoder: NSCoder) {
-        
-        return nil
-    }
-    
     /// Initializes and returns a newly allocated country picker view controller object.
     ///
     /// - Parameter displayMode: The display mode for the country picker.
@@ -54,6 +49,11 @@ public final class GCCountryPickerViewController: UITableViewController {
         self.displayMode = displayMode
         
         super.init(style: .plain)
+    }
+    
+    public required init?(coder aDecoder: NSCoder) {
+        
+        return nil
     }
 }
 
@@ -141,8 +141,15 @@ extension GCCountryPickerViewController {
         self.searchController.searchResultsUpdater = self
         self.searchResultsController.delegate = self
         
-        self.navigationItem.searchController = self.searchController
-        self.navigationItem.hidesSearchBarWhenScrolling = false
+        if #available(iOS 11.0, *) {
+            
+            self.navigationItem.searchController = self.searchController
+            self.navigationItem.hidesSearchBarWhenScrolling = false
+        }
+        else {
+            
+            self.tableView.tableHeaderView = self.searchController.searchBar
+        }
         
         self.definesPresentationContext = true
     }
@@ -220,16 +227,8 @@ extension GCCountryPickerViewController {
     
     fileprivate func configureTableView() {
         
-        switch self.displayMode {
-            
-            case .withCallingCodes:
-                self.tableView.register(GCTableViewCell.self, forCellReuseIdentifier: GCTableViewCell.identifier)
-            
-            case .withoutCallingCodes:
-                self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
-        }
-        
-        self.tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: "SectionHeaderView")
+        self.tableView.rowHeight = 44
+        self.tableView.sectionHeaderHeight = 28
     }
 }
 
@@ -237,23 +236,13 @@ extension GCCountryPickerViewController {
 
 extension GCCountryPickerViewController {
     
-    public override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
-        return 28
-    }
-    
-    public override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        return 44
-    }
-    
     public override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SectionHeaderView")
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SectionHeaderView") ?? UITableViewHeaderFooterView(reuseIdentifier: "SectionHeaderView")
         
-        headerView?.textLabel?.text = self.sectionTitles[section]
-        headerView?.textLabel?.font = UIFont.boldSystemFont(ofSize: UIFont.labelFontSize)
-        headerView?.textLabel?.textColor = .black
+        headerView.textLabel?.text = self.sectionTitles[section]
+        headerView.textLabel?.font = UIFont.boldSystemFont(ofSize: UIFont.labelFontSize)
+        headerView.textLabel?.textColor = .black
         
         return headerView
     }
@@ -295,7 +284,7 @@ extension GCCountryPickerViewController {
         switch self.displayMode {
             
             case .withCallingCodes:
-                let cell = tableView.dequeueReusableCell(withIdentifier: GCTableViewCell.identifier, for: indexPath) as! GCTableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: GCTableViewCell.identifier) as? GCTableViewCell ?? GCTableViewCell(style: .default)
                 
                 cell.titleLabel.text = country.localizedDisplayName
                 
@@ -311,7 +300,7 @@ extension GCCountryPickerViewController {
                 return cell
             
             case .withoutCallingCodes:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+                let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell") ?? UITableViewCell(style: .default, reuseIdentifier: "TableViewCell")
                 
                 cell.textLabel?.text = country.localizedDisplayName
                 

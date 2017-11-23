@@ -25,11 +25,6 @@ class GCSearchResultsController: UITableViewController {
     
     // MARK: Initializers
     
-    required init?(coder aDecoder: NSCoder) {
-        
-        return nil
-    }
-    
     /// Initializes and returns a newly allocated search results controller object.
     ///
     /// - Parameter displayMode: The display mode for the search results.
@@ -40,6 +35,11 @@ class GCSearchResultsController: UITableViewController {
         self.displayMode = displayMode
         
         super.init(style: .plain)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        
+        return nil
     }
 }
 
@@ -80,27 +80,14 @@ extension GCSearchResultsController {
     
     fileprivate func configureTableView() {
         
+        self.tableView.rowHeight = 44
         self.tableView.keyboardDismissMode = .onDrag
-        
-        switch self.displayMode {
-            
-            case .withAccessoryTitles:
-                self.tableView.register(GCTableViewCell.self, forCellReuseIdentifier: GCTableViewCell.identifier)
-            
-            case .withoutAccessoryTitles:
-                self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
-        }
     }
 }
 
 // MARK: - UITableViewDelegate
 
 extension GCSearchResultsController {
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        return 44
-    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -126,7 +113,7 @@ extension GCSearchResultsController {
         switch self.displayMode {
             
             case .withAccessoryTitles:
-                let cell = tableView.dequeueReusableCell(withIdentifier: GCTableViewCell.identifier, for: indexPath) as! GCTableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: GCTableViewCell.identifier) as? GCTableViewCell ?? GCTableViewCell(style: .default)
                 
                 cell.titleLabel.text = searchResult.displayTitle
                 cell.accessoryLabel.text = searchResult.accessoryTitle
@@ -134,7 +121,7 @@ extension GCSearchResultsController {
                 return cell
             
             case .withoutAccessoryTitles:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+                let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell") ?? UITableViewCell(style: .default, reuseIdentifier: "TableViewCell")
                 
                 cell.textLabel?.text = searchResult.displayTitle
                 
