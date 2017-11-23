@@ -1,3 +1,15 @@
+## [Version 2.2.0](https://github.com/graycampbell/GCCountryPicker/tree/2.2.0) - November 22, 2017
+
+[Full Changelog](https://github.com/graycampbell/GCCountryPicker/compare/2.1.0...2.2.0)
+
+**Release Notes**
+
+- Adds support for iOS 9+.
+
+**Merged Pull Requests**
+
+- Add iOS 9+ support [\#14](https://github.com/graycampbell/GCCountryPicker/pull/14) ([graycampbell](https://github.com/graycampbell))
+
 ## [Version 2.1.0](https://github.com/graycampbell/GCCountryPicker/tree/2.1.0) - November 4, 2017
 
 [Full Changelog](https://github.com/graycampbell/GCCountryPicker/compare/2.0.0...2.1.0)
