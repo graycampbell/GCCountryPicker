@@ -18,11 +18,6 @@ class GCTableViewCell: UITableViewCell {
     
     // MARK: Initializers
     
-    required init?(coder aDecoder: NSCoder) {
-        
-        super.init(coder: aDecoder)
-    }
-    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -33,6 +28,16 @@ class GCTableViewCell: UITableViewCell {
         self.addTitleLabel()
         self.addAccessoryLabel()
         self.addConstraints()
+    }
+    
+    convenience init(style: UITableViewCellStyle) {
+        
+        self.init(style: style, reuseIdentifier: GCTableViewCell.identifier)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        
+        return nil
     }
 }
 
