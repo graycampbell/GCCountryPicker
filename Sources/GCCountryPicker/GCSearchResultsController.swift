@@ -108,24 +108,30 @@ extension GCSearchResultsController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell") ?? UITableViewCell(style: .default, reuseIdentifier: "TableViewCell")
+        
         let searchResult = self.searchResults[indexPath.row]
+        
+        cell.textLabel?.text = searchResult.displayTitle
         
         switch self.displayMode {
             
             case .withAccessoryTitles:
-                let cell = tableView.dequeueReusableCell(withIdentifier: GCTableViewCell.identifier) as? GCTableViewCell ?? GCTableViewCell(style: .default)
+                let accessoryLabel = cell.accessoryView as? UILabel ?? UILabel()
                 
-                cell.titleLabel.text = searchResult.displayTitle
-                cell.accessoryLabel.text = searchResult.accessoryTitle
+                accessoryLabel.text = searchResult.accessoryTitle
+                accessoryLabel.sizeToFit()
                 
-                return cell
+                if cell.accessoryView == nil {
+                    
+                    accessoryLabel.textColor = .lightGray
+                    cell.accessoryView = accessoryLabel
+                }
             
             case .withoutAccessoryTitles:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell") ?? UITableViewCell(style: .default, reuseIdentifier: "TableViewCell")
-                
-                cell.textLabel?.text = searchResult.displayTitle
-                
-                return cell
+                break
         }
+        
+        return cell
     }
 }
