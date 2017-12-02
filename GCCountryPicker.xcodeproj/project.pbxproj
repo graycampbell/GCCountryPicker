@@ -17,7 +17,6 @@
 		E2135FFF1FAD6A19005B0ACF /* GCSearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2135FF31FAD6A19005B0ACF /* GCSearchResultsController.swift */; };
 		E21360001FAD6A19005B0ACF /* GCSearchResultsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2135FF41FAD6A19005B0ACF /* GCSearchResultsDelegate.swift */; };
 		E21360011FAD6A19005B0ACF /* GCSearchResultsDisplayMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2135FF51FAD6A19005B0ACF /* GCSearchResultsDisplayMode.swift */; };
-		E21360021FAD6A19005B0ACF /* GCTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2135FF61FAD6A19005B0ACF /* GCTableViewCell.swift */; };
 		E21360401FAD6FD7005B0ACF /* GCCountryPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2644B3B1F7D92DD0034EA06 /* GCCountryPicker.framework */; };
 		E213604C1FAD7123005B0ACF /* GCCountryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E213604B1FAD7123005B0ACF /* GCCountryTests.swift */; };
 /* End PBXBuildFile section */
@@ -43,7 +42,6 @@
 		E2135FF31FAD6A19005B0ACF /* GCSearchResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCSearchResultsController.swift; sourceTree = "<group>"; };
 		E2135FF41FAD6A19005B0ACF /* GCSearchResultsDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCSearchResultsDelegate.swift; sourceTree = "<group>"; };
 		E2135FF51FAD6A19005B0ACF /* GCSearchResultsDisplayMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCSearchResultsDisplayMode.swift; sourceTree = "<group>"; };
-		E2135FF61FAD6A19005B0ACF /* GCTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCTableViewCell.swift; sourceTree = "<group>"; };
 		E2135FF71FAD6A19005B0ACF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E213603B1FAD6FD7005B0ACF /* GCCountryPickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GCCountryPickerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E21360481FAD6FEA005B0ACF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -83,7 +81,6 @@
 				E2135FF31FAD6A19005B0ACF /* GCSearchResultsController.swift */,
 				E2135FF41FAD6A19005B0ACF /* GCSearchResultsDelegate.swift */,
 				E2135FF51FAD6A19005B0ACF /* GCSearchResultsDisplayMode.swift */,
-				E2135FF61FAD6A19005B0ACF /* GCTableViewCell.swift */,
 				E2135FF71FAD6A19005B0ACF /* Info.plist */,
 			);
 			name = GCCountryPicker;
@@ -244,7 +241,6 @@
 				E2135FFB1FAD6A19005B0ACF /* GCCountryPickerDelegate.swift in Sources */,
 				E2135FF81FAD6A19005B0ACF /* GCCountry.swift in Sources */,
 				E21360001FAD6A19005B0ACF /* GCSearchResultsDelegate.swift in Sources */,
-				E21360021FAD6A19005B0ACF /* GCTableViewCell.swift in Sources */,
 				E2135FFE1FAD6A19005B0ACF /* GCSearchResult.swift in Sources */,
 				E2135FFA1FAD6A19005B0ACF /* GCCountryPickerDataSource.swift in Sources */,
 			);
