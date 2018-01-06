@@ -48,7 +48,7 @@ class GCCountryTests: XCTestCase {
         XCTAssertNil(country1?.callingCode)
         XCTAssertNotNil(country2?.callingCode)
         
-        XCTAssert(country2?.callingCode == "1", String(describing: country2?.callingCode))
+        XCTAssert(country2?.callingCode == "+1", String(describing: country2?.callingCode))
     }
     
     func testPossibleCountries() {
