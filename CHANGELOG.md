@@ -1,3 +1,16 @@
+
+## [Version 2.3.0](https://github.com/graycampbell/GCCountryPicker/tree/2.3.0) - January 6, 2017
+
+[Full Changelog](https://github.com/graycampbell/GCCountryPicker/compare/2.2.0...2.3.0)
+
+**Release Notes**
+
+- Updates `GCCountry.callingCode` to include "+".
+
+**Merged Pull Requests**
+
+- Update country calling code to include '+' [\#15](https://github.com/graycampbell/GCCountryPicker/pull/15) ([graycampbell](https://github.com/graycampbell))
+
 ## [Version 2.2.0](https://github.com/graycampbell/GCCountryPicker/tree/2.2.0) - November 22, 2017
 
 [Full Changelog](https://github.com/graycampbell/GCCountryPicker/compare/2.1.0...2.2.0)
