@@ -270,7 +270,7 @@ extension GCCountryPickerViewController {
     
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell") ?? UITableViewCell(style: .default, reuseIdentifier: "TableViewCell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Value1Cell") ?? UITableViewCell(style: .value1, reuseIdentifier: "Value1Cell")
         
         let country = self.countries[indexPath.section][indexPath.row]
         
@@ -279,16 +279,7 @@ extension GCCountryPickerViewController {
         switch self.displayMode {
             
             case .withCallingCodes:
-                let accessoryLabel = cell.accessoryView as? UILabel ?? UILabel()
-                
-                accessoryLabel.text = country.callingCode
-                accessoryLabel.sizeToFit()
-                
-                if cell.accessoryView == nil {
-                    
-                    accessoryLabel.textColor = .lightGray
-                    cell.accessoryView = accessoryLabel
-                }
+                cell.detailTextLabel?.text = country.callingCode
             
             case .withoutCallingCodes:
                 break
