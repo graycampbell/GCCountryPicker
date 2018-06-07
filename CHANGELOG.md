@@ -1,3 +1,16 @@
+# Change Log
+
+## [Version 2.4.0](https://github.com/graycampbell/GCCountryPicker/tree/2.4.0) - June 7, 2017
+
+[Full Changelog](https://github.com/graycampbell/GCCountryPicker/compare/2.3.0...2.4.0)
+
+**Release Notes**
+
+- Updates project to Swift 4.1.
+
+**Merged Pull Requests**
+
+- Update to Swift 4.1 [\#17](https://github.com/graycampbell/GCCountryPicker/pull/17) ([graycampbell](https://github.com/graycampbell))
 
 ## [Version 2.3.0](https://github.com/graycampbell/GCCountryPicker/tree/2.3.0) - January 6, 2017
 
