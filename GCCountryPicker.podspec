@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'GCCountryPicker'
-  s.version = '2.3.0'
+  s.version = '2.4.0'
   s.license = { :type => 'MIT', :file => 'LICENSE' }
   s.summary = 'A localized, searchable country picker view controller with optional calling codes for iOS 9+ written in Swift.'
   s.description  = <<-DESC
