@@ -43,7 +43,7 @@ public final class GCCountry: NSObject {
         self.countryCode = countryCode.uppercased()
         self.callingCode = GCCountry.callingCode(forCountryCode: self.countryCode)
         
-        guard let localizedDisplayName = Locale(identifier: Locale.preferredLanguages.first!).localizedString(forRegionCode: self.countryCode) else { return nil }
+        guard let localizedDisplayName = Locale(identifier: Bundle.main.preferredLocalizations.first!).localizedString(forRegionCode: self.countryCode) else { return nil }
         
         self.localizedDisplayName = localizedDisplayName
     }
