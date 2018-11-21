@@ -1,5 +1,17 @@
 # Change Log
 
+## [Version 2.4.2](https://github.com/graycampbell/GCCountryPicker/tree/2.4.2) - November 21, 2018
+
+[Full Changelog](https://github.com/graycampbell/GCCountryPicker/compare/2.4.1...2.4.2)
+
+**Release Notes**
+
+- Updates project to Swift 4.2.
+
+**Merged Pull Requests**
+
+- Update to Swift 4.2 [\#19](https://github.com/graycampbell/GCCountryPicker/pull/19) ([graycampbell](https://github.com/graycampbell))
+
 ## [Version 2.4.1](https://github.com/graycampbell/GCCountryPicker/tree/2.4.1) - June 12, 2018
 
 [Full Changelog](https://github.com/graycampbell/GCCountryPicker/compare/2.4.0...2.4.1)
