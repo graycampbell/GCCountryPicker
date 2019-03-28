@@ -1,5 +1,17 @@
 # Change Log
 
+## [Version 2.5.0](https://github.com/graycampbell/GCCountryPicker/tree/2.5.0) - March 27, 2019
+
+[Full Changelog](https://github.com/graycampbell/GCCountryPicker/compare/2.4.2...2.5.0)
+
+**Release Notes**
+
+- Updates project to Swift 5.0.
+
+**Merged Pull Requests**
+
+- Update to Swift 5 [\#20](https://github.com/graycampbell/GCCountryPicker/pull/20) ([graycampbell](https://github.com/graycampbell))
+
 ## [Version 2.4.2](https://github.com/graycampbell/GCCountryPicker/tree/2.4.2) - November 21, 2018
 
 [Full Changelog](https://github.com/graycampbell/GCCountryPicker/compare/2.4.1...2.4.2)
