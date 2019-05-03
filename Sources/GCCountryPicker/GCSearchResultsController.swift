@@ -19,9 +19,9 @@ class GCSearchResultsController: UITableViewController {
     
     var delegate: GCSearchResultsDelegate?
     
-    fileprivate let displayMode: GCSearchResultsDisplayMode
+    private let displayMode: GCSearchResultsDisplayMode
     
-    fileprivate var searchResults = [GCSearchResult]()
+    private var searchResults = [GCSearchResult]()
     
     // MARK: Initializers
     
@@ -78,7 +78,7 @@ extension GCSearchResultsController {
 
 extension GCSearchResultsController {
     
-    fileprivate func configureTableView() {
+    private func configureTableView() {
         
         self.tableView.rowHeight = 44
         self.tableView.keyboardDismissMode = .onDrag

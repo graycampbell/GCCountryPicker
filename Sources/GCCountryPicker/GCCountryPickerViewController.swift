@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 // MARK: Properties & Initializers
 
@@ -25,27 +26,30 @@ public final class GCCountryPickerViewController: UITableViewController {
     
     public var dataSource: GCCountryPickerDataSource?
     
-    fileprivate let displayMode: GCCountryPickerDisplayMode
+    private let flagStyle: GCCountryPickerFlagStyle
+    private let displayMode: GCCountryPickerDisplayMode
     
-    fileprivate var countries: [[GCCountry]]!
-    fileprivate var searchController: UISearchController!
-    fileprivate var searchResultsController: GCSearchResultsController!
+    private var countries: [[GCCountry]]!
+    private var searchController: UISearchController!
+    private var searchResultsController: GCSearchResultsController!
     
-    fileprivate var collation = UILocalizedIndexedCollation.current()
-    fileprivate var sectionTitles = UILocalizedIndexedCollation.current().sectionTitles
-    fileprivate var sectionIndexTitles = UILocalizedIndexedCollation.current().sectionIndexTitles
+    private var collation = UILocalizedIndexedCollation.current()
+    private var sectionTitles = UILocalizedIndexedCollation.current().sectionTitles
+    private var sectionIndexTitles = UILocalizedIndexedCollation.current().sectionIndexTitles
     
-    fileprivate let defaultCountryCodes: [String] = ["AD", "AE", "AF", "AG", "AI", "AL", "AM", "AO", "AQ", "AR", "AS", "AT", "AU", "AW", "AX", "AZ", "BA", "BB", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BL", "BM", "BN", "BO", "BQ", "BR", "BS", "BT", "BV", "BW", "BY", "BZ", "CA", "CC", "CD", "CF", "CG", "CH", "CI", "CK", "CL", "CM", "CN", "CO", "CR", "CU", "CV", "CW", "CX", "CY", "CZ", "DE", "DJ", "DK", "DM", "DO", "DZ", "EC", "EE", "EG", "EH", "ER", "ES", "ET", "FI", "FJ", "FK", "FM", "FO", "FR", "GA", "GB", "GD", "GE", "GF", "GG", "GH", "GI", "GL", "GM", "GN", "GP", "GQ", "GR", "GS", "GT", "GU", "GW", "GY", "HK", "HM", "HN", "HR", "HT", "HU", "ID", "IE", "IL", "IM", "IN", "IO", "IQ", "IR", "IS", "IT", "JE", "JM", "JO", "JP", "KE", "KG", "KH", "KI", "KM", "KN", "KP", "KR", "KW", "KY", "KZ", "LA", "LB", "LC", "LI", "LK", "LR", "LS", "LT", "LU", "LV", "LY", "MA", "MC", "MD", "ME", "MF", "MG", "MH", "MK", "ML", "MM", "MN", "MO", "MP", "MQ", "MR", "MS", "MT", "MU", "MV", "MW", "MX", "MY", "MZ", "NA", "NC", "NE", "NF", "NG", "NI", "NL", "NO", "NP", "NR", "NU", "NZ", "OM", "PA", "PE", "PF", "PG", "PH", "PK", "PL", "PM", "PN", "PR", "PS", "PT", "PW", "PY", "QA", "RE", "RO", "RS", "RU", "RW", "SA", "SB", "SC", "SD", "SE", "SG", "SH", "SI", "SJ", "SK", "SL", "SM", "SN", "SO", "SR", "SS", "ST", "SV", "SX", "SY", "SZ", "TC", "TD", "TF", "TG", "TH", "TJ", "TK", "TL", "TM", "TN", "TO", "TR", "TT", "TV", "TW", "TZ", "UA", "UG", "UM", "US", "UY", "UZ", "VA", "VC", "VE", "VG", "VI", "VN", "VU", "WF", "WS", "YE", "YT", "ZA", "ZM", "ZW"]
+    private let defaultCountryCodes: [String] = ["AD", "AE", "AF", "AG", "AI", "AL", "AM", "AO", "AQ", "AR", "AS", "AT", "AU", "AW", "AX", "AZ", "BA", "BB", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BL", "BM", "BN", "BO", "BQ", "BR", "BS", "BT", "BV", "BW", "BY", "BZ", "CA", "CC", "CD", "CF", "CG", "CH", "CI", "CK", "CL", "CM", "CN", "CO", "CR", "CU", "CV", "CW", "CX", "CY", "CZ", "DE", "DJ", "DK", "DM", "DO", "DZ", "EC", "EE", "EG", "EH", "ER", "ES", "ET", "FI", "FJ", "FK", "FM", "FO", "FR", "GA", "GB", "GD", "GE", "GF", "GG", "GH", "GI", "GL", "GM", "GN", "GP", "GQ", "GR", "GS", "GT", "GU", "GW", "GY", "HK", "HM", "HN", "HR", "HT", "HU", "ID", "IE", "IL", "IM", "IN", "IO", "IQ", "IR", "IS", "IT", "JE", "JM", "JO", "JP", "KE", "KG", "KH", "KI", "KM", "KN", "KP", "KR", "KW", "KY", "KZ", "LA", "LB", "LC", "LI", "LK", "LR", "LS", "LT", "LU", "LV", "LY", "MA", "MC", "MD", "ME", "MF", "MG", "MH", "MK", "ML", "MM", "MN", "MO", "MP", "MQ", "MR", "MS", "MT", "MU", "MV", "MW", "MX", "MY", "MZ", "NA", "NC", "NE", "NF", "NG", "NI", "NL", "NO", "NP", "NR", "NU", "NZ", "OM", "PA", "PE", "PF", "PG", "PH", "PK", "PL", "PM", "PN", "PR", "PS", "PT", "PW", "PY", "QA", "RE", "RO", "RS", "RU", "RW", "SA", "SB", "SC", "SD", "SE", "SG", "SH", "SI", "SJ", "SK", "SL", "SM", "SN", "SO", "SR", "SS", "ST", "SV", "SX", "SY", "SZ", "TC", "TD", "TF", "TG", "TH", "TJ", "TK", "TL", "TM", "TN", "TO", "TR", "TT", "TV", "TW", "TZ", "UA", "UG", "UM", "US", "UY", "UZ", "VA", "VC", "VE", "VG", "VI", "VN", "VU", "WF", "WS", "YE", "YT", "ZA", "ZM", "ZW"]
     
     // MARK: Initializers
     
     /// Initializes and returns a newly allocated country picker view controller object.
     ///
+    /// - Parameter flagStyle: The flag style for the country picker.
     /// - Parameter displayMode: The display mode for the country picker.
     /// - Returns: An initialized country picker view controller object.
     
-    public init(displayMode: GCCountryPickerDisplayMode) {
+    public init(flagStyle: GCCountryPickerFlagStyle, displayMode: GCCountryPickerDisplayMode) {
         
+        self.flagStyle = flagStyle
         self.displayMode = displayMode
         
         super.init(style: .plain)
@@ -75,7 +79,7 @@ extension GCCountryPickerViewController {
 
 extension GCCountryPickerViewController {
     
-    fileprivate func loadCountries() {
+    private func loadCountries() {
         
         self.countries = Array(repeating: [GCCountry](), count: self.sectionTitles.count)
         
@@ -123,7 +127,7 @@ extension GCCountryPickerViewController {
 
 extension GCCountryPickerViewController {
     
-    fileprivate func configureNavigationBar() {
+    private func configureNavigationBar() {
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.cancel(barButtonItem:)))
         
@@ -216,7 +220,7 @@ extension GCCountryPickerViewController: GCSearchResultsDelegate {
 
 extension GCCountryPickerViewController {
     
-    fileprivate func configureTableView() {
+    private func configureTableView() {
         
         self.tableView.rowHeight = 44
         self.tableView.sectionHeaderHeight = 28
@@ -276,6 +280,19 @@ extension GCCountryPickerViewController {
         
         cell.textLabel?.text = country.localizedDisplayName
         
+        switch self.flagStyle {
+            
+            case .none:
+                break
+            
+            default:
+                let bundle = Bundle(identifier: "com.graycampbell.GCCountryPicker")
+                let image = UIImage(named: "\(country.countryCode)-\(self.flagStyle.rawValue)", in: bundle, compatibleWith: nil)
+                let scaledImage = self.scaled(image: image, newSize: CGSize(width: 29, height: 29))
+                
+                cell.imageView?.image = scaledImage
+        }
+        
         switch self.displayMode {
             
             case .withCallingCodes:
@@ -286,5 +303,28 @@ extension GCCountryPickerViewController {
         }
         
         return cell
+    }
+}
+
+// MARK: - Images
+
+extension GCCountryPickerViewController {
+    
+    private func scaled(image: UIImage?, newSize: CGSize) -> UIImage? {
+        
+        guard let image = image else { return nil }
+        
+        let targetRect = CGRect(origin: .zero, size: newSize)
+        let drawingRect = AVMakeRect(aspectRatio: image.size, insideRect: targetRect)
+        
+        UIGraphicsBeginImageContextWithOptions(drawingRect.size, false, 0.0)
+        
+        image.draw(in: drawingRect)
+        
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext()
+        
+        return newImage
     }
 }
