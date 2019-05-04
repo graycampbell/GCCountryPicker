@@ -27,14 +27,9 @@ class GCSearchResultsController: UITableViewController {
     ///
     /// - Returns: An initialized search results controller object.
     
-    init() {
+    convenience init() {
         
-        super.init(style: .plain)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        
-        return nil
+        self.init(style: .plain)
     }
 }
 
@@ -53,6 +48,10 @@ extension GCSearchResultsController {
 // MARK: - Updating
 
 extension GCSearchResultsController {
+    
+    /// Updates the controller with a collection of search results.
+    ///
+    /// - Parameter searchResults: A collection of search results for the controller to display.
     
     func update(withSearchResults searchResults: [GCSearchResult]) {
         
