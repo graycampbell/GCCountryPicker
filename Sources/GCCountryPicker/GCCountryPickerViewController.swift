@@ -29,8 +29,12 @@ public final class GCCountryPickerViewController: UITableViewController {
     private let showsCallingCodes: Bool
     
     private var countries: [[GCCountry]]!
-    private var searchController: UISearchController!
-    private let searchResultsController = GCSearchResultsController()
+    private let searchController = UISearchController(searchResultsController: GCSearchResultsController())
+    
+    private var searchResultsController: GCSearchResultsController? {
+        
+        return self.searchController.searchResultsController as? GCSearchResultsController
+    }
     
     private var collation = UILocalizedIndexedCollation.current()
     private var sectionTitles = UILocalizedIndexedCollation.current().sectionTitles
@@ -130,10 +134,8 @@ extension GCCountryPickerViewController {
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.cancel(barButtonItem:)))
         
-        self.searchController = UISearchController(searchResultsController: self.searchResultsController)
-        
         self.searchController.searchResultsUpdater = self
-        self.searchResultsController.delegate = self
+        self.searchResultsController?.delegate = self
         
         if #available(iOS 11.0, *) {
             
@@ -189,7 +191,7 @@ extension GCCountryPickerViewController: UISearchResultsUpdating {
             }
         }
         
-        self.searchResultsController.update(withSearchResults: searchResults)
+        self.searchResultsController?.update(withSearchResults: searchResults)
     }
 }
 
