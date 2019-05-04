@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import AVFoundation
 
 // MARK: Properties & Initializers
 
@@ -314,12 +313,9 @@ extension GCCountryPickerViewController {
         
         guard let image = image else { return nil }
         
-        let targetRect = CGRect(origin: .zero, size: newSize)
-        let drawingRect = AVMakeRect(aspectRatio: image.size, insideRect: targetRect)
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
         
-        UIGraphicsBeginImageContextWithOptions(drawingRect.size, false, 0.0)
-        
-        image.draw(in: drawingRect)
+        image.draw(in: CGRect(origin: .zero, size: newSize))
         
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         
