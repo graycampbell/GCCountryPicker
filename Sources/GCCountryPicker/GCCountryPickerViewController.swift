@@ -30,7 +30,7 @@ public final class GCCountryPickerViewController: UITableViewController {
     
     private var countries: [[GCCountry]]!
     private var searchController: UISearchController!
-    private var searchResultsController: GCSearchResultsController!
+    private let searchResultsController = GCSearchResultsController()
     
     private var collation = UILocalizedIndexedCollation.current()
     private var sectionTitles = UILocalizedIndexedCollation.current().sectionTitles
@@ -130,15 +130,6 @@ extension GCCountryPickerViewController {
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.cancel(barButtonItem:)))
         
-        switch self.displayMode {
-            
-            case .withCallingCodes:
-                self.searchResultsController = GCSearchResultsController(displayMode: .withAccessoryTitles, showsImages: self.showsFlags)
-            
-            case .withoutCallingCodes:
-                self.searchResultsController = GCSearchResultsController(displayMode: .withoutAccessoryTitles, showsImages: self.showsFlags)
-        }
-        
         self.searchController = UISearchController(searchResultsController: self.searchResultsController)
         
         self.searchController.searchResultsUpdater = self
@@ -190,7 +181,10 @@ extension GCCountryPickerViewController: UISearchResultsUpdating {
                     
                     if countryMatchesSearchText {
                         
-                        let searchResult = GCSearchResult(object: country, image: country.flag, displayTitle: country.localizedDisplayName, accessoryTitle: country.callingCode)
+                        let image = self.showsFlags ? country.flag : nil
+                        let accessoryTitle = (self.displayMode == .withCallingCodes) ? country.callingCode : nil
+                        
+                        let searchResult = GCSearchResult(object: country, image: image, displayTitle: country.localizedDisplayName, accessoryTitle: accessoryTitle)
                         
                         searchResults.append(searchResult)
                     }
@@ -277,17 +271,9 @@ extension GCCountryPickerViewController {
         
         let country = self.countries[indexPath.section][indexPath.row]
         
-        cell.textLabel?.text = country.localizedDisplayName
         cell.imageView?.image = self.showsFlags ? country.flag : nil
-        
-        switch self.displayMode {
-            
-            case .withCallingCodes:
-                cell.detailTextLabel?.text = country.callingCode
-            
-            case .withoutCallingCodes:
-                break
-        }
+        cell.textLabel?.text = country.localizedDisplayName
+        cell.detailTextLabel?.text = (self.displayMode == .withCallingCodes) ? country.callingCode : nil
         
         return cell
     }

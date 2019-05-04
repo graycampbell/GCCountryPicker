@@ -19,23 +19,15 @@ class GCSearchResultsController: UITableViewController {
     
     var delegate: GCSearchResultsDelegate?
     
-    private let displayMode: GCSearchResultsDisplayMode
-    private let showsImages: Bool
-    
     private var searchResults = [GCSearchResult]()
     
     // MARK: Initializers
     
     /// Initializes and returns a newly allocated search results controller object.
     ///
-    /// - Parameter displayMode: The display mode for the search results.
-    /// - Parameter showsImages: A boolean that determines whether or not the controller will display an image for each search result.
     /// - Returns: An initialized search results controller object.
     
-    init(displayMode: GCSearchResultsDisplayMode, showsImages: Bool) {
-        
-        self.displayMode = displayMode
-        self.showsImages = showsImages
+    init() {
         
         super.init(style: .plain)
     }
@@ -115,17 +107,9 @@ extension GCSearchResultsController {
         
         let searchResult = self.searchResults[indexPath.row]
         
+        cell.imageView?.image = searchResult.image
         cell.textLabel?.text = searchResult.displayTitle
-        cell.imageView?.image = self.showsImages ? searchResult.image : nil
-        
-        switch self.displayMode {
-            
-            case .withAccessoryTitles:
-                cell.detailTextLabel?.text = searchResult.accessoryTitle
-            
-            case .withoutAccessoryTitles:
-                break
-        }
+        cell.detailTextLabel?.text = searchResult.accessoryTitle
         
         return cell
     }
