@@ -11,7 +11,6 @@
 		E2135FF91FAD6A19005B0ACF /* GCCountryPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = E2135FED1FAD6A19005B0ACF /* GCCountryPicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E2135FFA1FAD6A19005B0ACF /* GCCountryPickerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2135FEE1FAD6A19005B0ACF /* GCCountryPickerDataSource.swift */; };
 		E2135FFB1FAD6A19005B0ACF /* GCCountryPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2135FEF1FAD6A19005B0ACF /* GCCountryPickerDelegate.swift */; };
-		E2135FFC1FAD6A19005B0ACF /* GCCountryPickerDisplayMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2135FF01FAD6A19005B0ACF /* GCCountryPickerDisplayMode.swift */; };
 		E2135FFD1FAD6A19005B0ACF /* GCCountryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2135FF11FAD6A19005B0ACF /* GCCountryPickerViewController.swift */; };
 		E2135FFE1FAD6A19005B0ACF /* GCSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2135FF21FAD6A19005B0ACF /* GCSearchResult.swift */; };
 		E2135FFF1FAD6A19005B0ACF /* GCSearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2135FF31FAD6A19005B0ACF /* GCSearchResultsController.swift */; };
@@ -283,7 +282,6 @@
 		E2135FED1FAD6A19005B0ACF /* GCCountryPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCCountryPicker.h; sourceTree = "<group>"; };
 		E2135FEE1FAD6A19005B0ACF /* GCCountryPickerDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCCountryPickerDataSource.swift; sourceTree = "<group>"; };
 		E2135FEF1FAD6A19005B0ACF /* GCCountryPickerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCCountryPickerDelegate.swift; sourceTree = "<group>"; };
-		E2135FF01FAD6A19005B0ACF /* GCCountryPickerDisplayMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCCountryPickerDisplayMode.swift; sourceTree = "<group>"; };
 		E2135FF11FAD6A19005B0ACF /* GCCountryPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCCountryPickerViewController.swift; sourceTree = "<group>"; };
 		E2135FF21FAD6A19005B0ACF /* GCSearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCSearchResult.swift; sourceTree = "<group>"; };
 		E2135FF31FAD6A19005B0ACF /* GCSearchResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCSearchResultsController.swift; sourceTree = "<group>"; };
@@ -569,7 +567,6 @@
 				E2135FEC1FAD6A19005B0ACF /* GCCountry.swift */,
 				E2135FEE1FAD6A19005B0ACF /* GCCountryPickerDataSource.swift */,
 				E2135FEF1FAD6A19005B0ACF /* GCCountryPickerDelegate.swift */,
-				E2135FF01FAD6A19005B0ACF /* GCCountryPickerDisplayMode.swift */,
 				E2135FF11FAD6A19005B0ACF /* GCCountryPickerViewController.swift */,
 				E2135FF21FAD6A19005B0ACF /* GCSearchResult.swift */,
 				E2135FF31FAD6A19005B0ACF /* GCSearchResultsController.swift */,
@@ -1234,7 +1231,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2135FFD1FAD6A19005B0ACF /* GCCountryPickerViewController.swift in Sources */,
-				E2135FFC1FAD6A19005B0ACF /* GCCountryPickerDisplayMode.swift in Sources */,
 				E2135FFF1FAD6A19005B0ACF /* GCSearchResultsController.swift in Sources */,
 				E2135FFB1FAD6A19005B0ACF /* GCCountryPickerDelegate.swift in Sources */,
 				E2135FF81FAD6A19005B0ACF /* GCCountry.swift in Sources */,

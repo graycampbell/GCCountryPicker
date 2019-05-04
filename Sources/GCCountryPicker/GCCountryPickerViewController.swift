@@ -25,8 +25,8 @@ public final class GCCountryPickerViewController: UITableViewController {
     
     public var dataSource: GCCountryPickerDataSource?
     
-    private let displayMode: GCCountryPickerDisplayMode
     private let showsFlags: Bool
+    private let showsCallingCodes: Bool
     
     private var countries: [[GCCountry]]!
     private var searchController: UISearchController!
@@ -42,14 +42,14 @@ public final class GCCountryPickerViewController: UITableViewController {
     
     /// Initializes and returns a newly allocated country picker view controller object.
     ///
-    /// - Parameter displayMode: The display mode for the country picker.
     /// - Parameter showsFlags: A boolean that determines whether or not the country picker will display a flag for each country.
+    /// - Parameter showsCallingCodes: A boolean that determines whether or not the country picker will display a calling code for each country.
     /// - Returns: An initialized country picker view controller object.
     
-    public init(displayMode: GCCountryPickerDisplayMode, showsFlags: Bool) {
+    public init(showsFlags: Bool, showsCallingCodes: Bool) {
         
-        self.displayMode = displayMode
         self.showsFlags = showsFlags
+        self.showsCallingCodes = showsCallingCodes
         
         super.init(style: .plain)
     }
@@ -174,17 +174,14 @@ extension GCCountryPickerViewController: UISearchResultsUpdating {
                         
                         countryMatchesSearchText = true
                     }
-                    else if self.displayMode == .withCallingCodes, let _ = country.callingCode?.range(of: "^.{1}(\(searchText))", options: .regularExpression, range: nil, locale: nil) {
+                    else if self.showsCallingCodes, let _ = country.callingCode?.range(of: "^.{1}(\(searchText))", options: .regularExpression, range: nil, locale: nil) {
                         
                         countryMatchesSearchText = true
                     }
                     
                     if countryMatchesSearchText {
                         
-                        let image = self.showsFlags ? country.flag : nil
-                        let accessoryTitle = (self.displayMode == .withCallingCodes) ? country.callingCode : nil
-                        
-                        let searchResult = GCSearchResult(object: country, image: image, displayTitle: country.localizedDisplayName, accessoryTitle: accessoryTitle)
+                        let searchResult = GCSearchResult(object: country, image: self.showsFlags ? country.flag : nil, displayTitle: country.localizedDisplayName, accessoryTitle: self.showsCallingCodes ? country.callingCode : nil)
                         
                         searchResults.append(searchResult)
                     }
@@ -273,7 +270,7 @@ extension GCCountryPickerViewController {
         
         cell.imageView?.image = self.showsFlags ? country.flag : nil
         cell.textLabel?.text = country.localizedDisplayName
-        cell.detailTextLabel?.text = (self.displayMode == .withCallingCodes) ? country.callingCode : nil
+        cell.detailTextLabel?.text = self.showsCallingCodes ? country.callingCode : nil
         
         return cell
     }
