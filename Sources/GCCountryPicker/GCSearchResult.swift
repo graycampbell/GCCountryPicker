@@ -15,6 +15,10 @@ struct GCSearchResult {
     
     let object: Any
     
+    /// The image for the search result.
+    
+    let image: UIImage?
+    
     /// The display title for the search result.
     
     let displayTitle: String

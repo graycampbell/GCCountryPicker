@@ -9,7 +9,7 @@ import UIKit
 
 // MARK: Properties & Initializers
 
-/// The GCCountry class defines an object that contains the country code, calling code, and localized display name for a country.
+/// The GCCountry class defines an object that contains the country code, calling code, localized display name, and flag for a country.
 
 public final class GCCountry: NSObject {
     
@@ -30,6 +30,29 @@ public final class GCCountry: NSObject {
     /// This value is automatically generated using the supplied country code and the current locale.
     
     @objc public let localizedDisplayName: String
+    
+    /// The flag for the country.
+    ///
+    /// This image is automatically generated using the supplied country code.
+    
+    public lazy var flag: UIImage? = {
+        
+        let frameworkBundle = Bundle(identifier: "com.graycampbell.GCCountryPicker")
+        
+        guard let image = UIImage(named: self.countryCode, in: frameworkBundle, compatibleWith: nil) else { return nil }
+        
+        let size = CGSize(width: 29, height: 29)
+        
+        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
+        
+        image.draw(in: CGRect(origin: .zero, size: size))
+        
+        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext()
+        
+        return scaledImage
+    }()
     
     // MARK: Initializers
     

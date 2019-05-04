@@ -25,8 +25,8 @@ public final class GCCountryPickerViewController: UITableViewController {
     
     public var dataSource: GCCountryPickerDataSource?
     
-    private let flagStyle: GCCountryPickerFlagStyle
     private let displayMode: GCCountryPickerDisplayMode
+    private let showsFlags: Bool
     
     private var countries: [[GCCountry]]!
     private var searchController: UISearchController!
@@ -42,14 +42,14 @@ public final class GCCountryPickerViewController: UITableViewController {
     
     /// Initializes and returns a newly allocated country picker view controller object.
     ///
-    /// - Parameter flagStyle: The flag style for the country picker.
     /// - Parameter displayMode: The display mode for the country picker.
+    /// - Parameter showsFlags: A boolean that determines whether or not the country picker will display a flag for each country.
     /// - Returns: An initialized country picker view controller object.
     
-    public init(flagStyle: GCCountryPickerFlagStyle, displayMode: GCCountryPickerDisplayMode) {
+    public init(displayMode: GCCountryPickerDisplayMode, showsFlags: Bool) {
         
-        self.flagStyle = flagStyle
         self.displayMode = displayMode
+        self.showsFlags = showsFlags
         
         super.init(style: .plain)
     }
@@ -133,10 +133,10 @@ extension GCCountryPickerViewController {
         switch self.displayMode {
             
             case .withCallingCodes:
-                self.searchResultsController = GCSearchResultsController(displayMode: .withAccessoryTitles)
+                self.searchResultsController = GCSearchResultsController(displayMode: .withAccessoryTitles, showsImages: self.showsFlags)
             
             case .withoutCallingCodes:
-                self.searchResultsController = GCSearchResultsController(displayMode: .withoutAccessoryTitles)
+                self.searchResultsController = GCSearchResultsController(displayMode: .withoutAccessoryTitles, showsImages: self.showsFlags)
         }
         
         self.searchController = UISearchController(searchResultsController: self.searchResultsController)
@@ -190,7 +190,7 @@ extension GCCountryPickerViewController: UISearchResultsUpdating {
                     
                     if countryMatchesSearchText {
                         
-                        let searchResult = GCSearchResult(object: country, displayTitle: country.localizedDisplayName, accessoryTitle: country.callingCode)
+                        let searchResult = GCSearchResult(object: country, image: country.flag, displayTitle: country.localizedDisplayName, accessoryTitle: country.callingCode)
                         
                         searchResults.append(searchResult)
                     }
@@ -278,19 +278,7 @@ extension GCCountryPickerViewController {
         let country = self.countries[indexPath.section][indexPath.row]
         
         cell.textLabel?.text = country.localizedDisplayName
-        
-        switch self.flagStyle {
-            
-            case .none:
-                break
-            
-            default:
-                let bundle = Bundle(identifier: "com.graycampbell.GCCountryPicker")
-                let image = UIImage(named: "\(country.countryCode)-\(self.flagStyle.rawValue)", in: bundle, compatibleWith: nil)
-                let scaledImage = self.scaled(image: image, newSize: CGSize(width: 29, height: 29))
-                
-                cell.imageView?.image = scaledImage
-        }
+        cell.imageView?.image = self.showsFlags ? country.flag : nil
         
         switch self.displayMode {
             
@@ -302,25 +290,5 @@ extension GCCountryPickerViewController {
         }
         
         return cell
-    }
-}
-
-// MARK: - Images
-
-extension GCCountryPickerViewController {
-    
-    private func scaled(image: UIImage?, newSize: CGSize) -> UIImage? {
-        
-        guard let image = image else { return nil }
-        
-        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
-        
-        image.draw(in: CGRect(origin: .zero, size: newSize))
-        
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        
-        UIGraphicsEndImageContext()
-        
-        return newImage
     }
 }
